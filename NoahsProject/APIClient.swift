@@ -37,7 +37,8 @@ class APIClient {
         apiURL.host = (DEV_MODE) ? "127.0.0.1" : "vcm-2006.vm.duke.edu"
     }
     
-    
+    /*** Fetches a list of Artist objects from the pieces API endpoint.
+    */
     func fetchUserList(completion: (([Artist]) -> Void)?) {
         apiURL.path = "/api/v1/pieces"
         guard let endpoint = apiURL.url else {
@@ -65,6 +66,53 @@ class APIClient {
             }
         }
         task.resume()
+    }
+    
+    /*** Fetches a file from the server, used internally by APIClient.
+    */
+    private func fetchFile(file: String, completion:((Data) -> Void)?) {
+        apiURL.path = "/uploads/\(file)"
+        guard let endpoint = apiURL.url else {
+            fatalError("throw error no url constructed")
+        }
+        
+        var req = URLRequest(url: endpoint)
+        req.httpMethod = "GET"
+        let session = URLSession(configuration: .default)
+        
+        let task = session.dataTask(with: req) {(data, res, error) in
+            DispatchQueue.main.async {
+                guard error == nil, let fileData = data else {
+                    fatalError("throw, error of no response")
+                }
+                completion?(fileData)
+            }
+        }
+        task.resume()
+    }
+    
+    /*** Facade for fetching tags.
+    */
+    func fetchTag(username: String, completion:((Data) -> Void)?) {
+        self.fetchFile(file:"\(username)_tag.jpg") { (data) in
+            completion?(data)
+        }
+    }
+    
+    /*** Facade for fetching 3D Model.
+    */
+    func fetchModel(username: String, completion:((Data) -> Void)?) {
+        self.fetchFile(file:"\(username)_model.obj") { (data) in
+            completion?(data)
+        }
+    }
+    
+    /*** Facade for fetching the texture.
+    */
+    func fetchTexture(username: String, completion:((Data) -> Void)?) {
+        self.fetchFile(file:"\(username)_texture.jpg") { (data) in
+            completion?(data)
+        }
     }
     
 }
