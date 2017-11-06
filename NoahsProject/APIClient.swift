@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-let DEV_MODE = true
+let DEV_MODE = false
 
 
 struct Artist: Codable {
@@ -28,13 +28,12 @@ struct Artist: Codable {
 
 class APIClient {
     
-    let userEndpoint = (DEV_MODE) ? URL(string: "http://127.0.0.1/api/v1/pieces") : URL(string: "http://vcm-2006.vm.duke.edu/api/v1/pieces")
-    
     var apiURL = URLComponents()
     
     init() {
         apiURL.scheme = "http"
         apiURL.host = (DEV_MODE) ? "127.0.0.1" : "vcm-2006.vm.duke.edu"
+        print("host: \(apiURL.host!)")
     }
     
     /*** Fetches a list of Artist objects from the pieces API endpoint.
