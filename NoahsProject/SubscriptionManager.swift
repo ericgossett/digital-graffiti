@@ -102,6 +102,7 @@ class SubscriptionManager {
                             texture: textureFile
                         )
                     )
+                    let _ = SubscriptionManager.saveToDisk(self._pieces)
                 }
             } catch {
                 // TODO: Add some error
@@ -128,6 +129,7 @@ class SubscriptionManager {
             try FileManager.default.removeItem(atPath: piece.tag.path)
             try modelManager.deleteAssets(username: username)
             self._pieces = self._pieces.filter(){$0.username != username}
+            let _ = SubscriptionManager.saveToDisk(self._pieces)
         } catch {
             throw SubscriptionManagerError.userNotFound
         }

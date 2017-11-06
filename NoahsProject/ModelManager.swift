@@ -37,7 +37,7 @@ class ModelManager {
     func saveAssets(username: String, completion: ((URL, URL) -> Void)?) {
         self.api.fetchModel(username: username) { (modelData) in
             self.api.fetchTexture(username: username) { textureData in
-                let modelFile = self.assetURL.appendingPathComponent("\(username)model.obj")
+                let modelFile = self.assetURL.appendingPathComponent("\(username)_model.obj")
                 try? modelData.write(to: modelFile, options: .atomic)
                 let textureFile = self.assetURL.appendingPathComponent("\(username)_texture.obj")
                 try? textureData.write(to: textureFile, options: .atomic)

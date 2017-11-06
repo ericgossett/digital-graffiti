@@ -17,6 +17,17 @@ class APITestViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let sub = SubscriptionManager()
+        do {
+            try sub.subscribeToArtist(username: "Banksy")
+        } catch {
+            print(sub.subscriptions()[0].tag)
+            print(sub.subscriptions()[0].model)
+            print(sub.subscriptions()[0].texture)
+        }
+        
+        
         let api = APIClient()
         var artist = [Artist]()
         api.fetchUserList() { (result) in
