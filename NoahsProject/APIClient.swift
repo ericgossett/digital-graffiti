@@ -70,7 +70,7 @@ class APIClient {
     
     /*** Fetches a file from the server, used internally by APIClient.
     */
-    private func fetchFile(file: String, completion:((Data) -> Void)?) {
+    private func fetchFile(file: String, completion: ((Data) -> Void)?) {
         apiURL.path = "/uploads/\(file)"
         guard let endpoint = apiURL.url else {
             fatalError("throw error no url constructed")
@@ -93,7 +93,7 @@ class APIClient {
     
     /*** Facade for fetching tags.
     */
-    func fetchTag(username: String, completion:((Data) -> Void)?) {
+    func fetchTag(username: String, completion: ((Data) -> Void)?) {
         self.fetchFile(file:"\(username)_tag.jpg") { (data) in
             completion?(data)
         }
@@ -101,7 +101,7 @@ class APIClient {
     
     /*** Facade for fetching 3D Model.
     */
-    func fetchModel(username: String, completion:((Data) -> Void)?) {
+    func fetchModel(username: String, completion: ((Data) -> Void)?) {
         self.fetchFile(file:"\(username)_model.obj") { (data) in
             completion?(data)
         }
@@ -109,7 +109,7 @@ class APIClient {
     
     /*** Facade for fetching the texture.
     */
-    func fetchTexture(username: String, completion:((Data) -> Void)?) {
+    func fetchTexture(username: String, completion: ((Data) -> Void)?) {
         self.fetchFile(file:"\(username)_texture.jpg") { (data) in
             completion?(data)
         }

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8080DE2C1FB0BF89008142E1 /* ModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8080DE2B1FB0BF89008142E1 /* ModelManager.swift */; };
+		8080DE2E1FB0EC13008142E1 /* SubscriptionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8080DE2D1FB0EC13008142E1 /* SubscriptionManager.swift */; };
 		80C802DF1FACF6BC0031B883 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C802DE1FACF6BC0031B883 /* AppDelegate.swift */; };
 		80C802E11FACF6BC0031B883 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 80C802E01FACF6BC0031B883 /* art.scnassets */; };
 		80C802E31FACF6BC0031B883 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C802E21FACF6BC0031B883 /* ViewController.swift */; };
@@ -15,10 +17,11 @@
 		80C802EB1FACF6BC0031B883 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80C802E91FACF6BC0031B883 /* LaunchScreen.storyboard */; };
 		80C802F31FACF8870031B883 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C802F21FACF8870031B883 /* APIClient.swift */; };
 		80C802F71FACF9180031B883 /* APITestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C802F61FACF9180031B883 /* APITestViewController.swift */; };
-		80C802FB1FAD00ED0031B883 /* AssetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C802FA1FAD00ED0031B883 /* AssetManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8080DE2B1FB0BF89008142E1 /* ModelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelManager.swift; sourceTree = "<group>"; };
+		8080DE2D1FB0EC13008142E1 /* SubscriptionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionManager.swift; sourceTree = "<group>"; };
 		80C802DB1FACF6BC0031B883 /* NoahsProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoahsProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80C802DE1FACF6BC0031B883 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		80C802E01FACF6BC0031B883 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -29,7 +32,6 @@
 		80C802EC1FACF6BC0031B883 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		80C802F21FACF8870031B883 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		80C802F61FACF9180031B883 /* APITestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APITestViewController.swift; sourceTree = "<group>"; };
-		80C802FA1FAD00ED0031B883 /* AssetManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AssetManager.swift; path = NoahsProject/AssetManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,7 +48,6 @@
 		80C802D21FACF6BC0031B883 = {
 			isa = PBXGroup;
 			children = (
-				80C802FA1FAD00ED0031B883 /* AssetManager.swift */,
 				80C802DD1FACF6BC0031B883 /* NoahsProject */,
 				80C802DC1FACF6BC0031B883 /* Products */,
 			);
@@ -69,6 +70,8 @@
 				80C802E21FACF6BC0031B883 /* ViewController.swift */,
 				80C802E41FACF6BC0031B883 /* Main.storyboard */,
 				80C802F21FACF8870031B883 /* APIClient.swift */,
+				8080DE2B1FB0BF89008142E1 /* ModelManager.swift */,
+				8080DE2D1FB0EC13008142E1 /* SubscriptionManager.swift */,
 				80C802E71FACF6BC0031B883 /* Assets.xcassets */,
 				80C802E91FACF6BC0031B883 /* LaunchScreen.storyboard */,
 				80C802EC1FACF6BC0031B883 /* Info.plist */,
@@ -151,9 +154,10 @@
 			files = (
 				80C802E31FACF6BC0031B883 /* ViewController.swift in Sources */,
 				80C802DF1FACF6BC0031B883 /* AppDelegate.swift in Sources */,
+				8080DE2E1FB0EC13008142E1 /* SubscriptionManager.swift in Sources */,
 				80C802F31FACF8870031B883 /* APIClient.swift in Sources */,
-				80C802FB1FAD00ED0031B883 /* AssetManager.swift in Sources */,
 				80C802F71FACF9180031B883 /* APITestViewController.swift in Sources */,
+				8080DE2C1FB0BF89008142E1 /* ModelManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
