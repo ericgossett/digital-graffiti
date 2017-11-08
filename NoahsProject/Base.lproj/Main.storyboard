@@ -28,7 +28,7 @@
             </objects>
             <point key="canvasLocation" x="-1574" y="-101"/>
         </scene>
-        <!--Item-->
+        <!--Available-->
         <scene sceneID="OxS-H8-Yas">
             <objects>
                 <viewController id="x8H-ez-NtV" customClass="AvailableViewController" customModule="NoahsProject" customModuleProvider="target" sceneMemberID="viewController">
@@ -86,7 +86,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="lxa-Fb-1yW"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="6r2-la-Lq3"/>
+                    <tabBarItem key="tabBarItem" title="Available" id="6r2-la-Lq3"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="availableCollectionView" destination="ZcG-7o-P8b" id="nHG-Id-QpS"/>
@@ -99,7 +99,7 @@
         <!--Subs-->
         <scene sceneID="5wp-As-830">
             <objects>
-                <tableViewController id="Iox-5f-PuX" sceneMemberID="viewController">
+                <tableViewController id="Iox-5f-PuX" customClass="SubViewController" customModule="NoahsProject" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="EBC-Z1-T07">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -139,6 +139,9 @@
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Subs" id="zGL-Vs-2Sy"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="subTableView" destination="EBC-Z1-T07" id="yGG-h2-l24"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MGR-3p-WZr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

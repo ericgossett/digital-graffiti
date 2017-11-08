@@ -28,7 +28,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         // Set the scene to the view
         sceneView.scene = scene
-        subArr.removeAll() //Delete this
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {

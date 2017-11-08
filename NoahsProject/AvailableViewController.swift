@@ -27,8 +27,8 @@ class AvailableViewController:UIViewController, UICollectionViewDataSource, UICo
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let  cell = collectionView.dequeueReusableCell(withReuseIdentifier: "availableCollectionCell", for: indexPath) as! AvailableCollectionCell
-        cell.cellLab.text=String(indexPath.item)
-        let isSubbed = subArr.contains(String(indexPath.item))
+        cell.cellLab.text="Artist "+String(indexPath.item)
+        let isSubbed = subArr.contains("Artist "+String(indexPath.item))
         cell.cellCheck.isHidden = !isSubbed
         return cell
     }
@@ -39,7 +39,9 @@ class AvailableViewController:UIViewController, UICollectionViewDataSource, UICo
         let cell = collectionView.cellForItem(at: indexPath) as! AvailableCollectionCell
         cell.cellCheck.isHidden = false
         cell.cellLab.isHidden = false
-        subArr.append(cell.cellLab.text!)
+        if !subArr.contains(cell.cellLab.text!){
+            subArr.append(cell.cellLab.text!)
+        }
         print(subArr)
     }
     private func collectionView(collectionView: UICollectionView, didEndDisplayingSupplementaryView view: UICollectionReusableView, forElementOfKind elementKind: String, atIndexPath indexPath: IndexPath) {
