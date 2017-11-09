@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		54B56C411FB0FAD20053F655 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B56C401FB0FAD20053F655 /* DataModel.swift */; };
+		54B56C491FB24C170053F655 /* AvailableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B56C481FB24C170053F655 /* AvailableViewController.swift */; };
+		54B56C4B1FB24D890053F655 /* AvailableCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B56C4A1FB24D890053F655 /* AvailableCollectionCell.swift */; };
+		54B56C4F1FB35B440053F655 /* SubTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B56C4E1FB35B440053F655 /* SubTableViewCell.swift */; };
+		54B56C511FB364420053F655 /* SubViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B56C501FB364420053F655 /* SubViewController.swift */; };
 		80C802DF1FACF6BC0031B883 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C802DE1FACF6BC0031B883 /* AppDelegate.swift */; };
 		80C802E11FACF6BC0031B883 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 80C802E01FACF6BC0031B883 /* art.scnassets */; };
 		80C802E31FACF6BC0031B883 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C802E21FACF6BC0031B883 /* ViewController.swift */; };
@@ -16,6 +21,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		54B56C401FB0FAD20053F655 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		54B56C481FB24C170053F655 /* AvailableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableViewController.swift; sourceTree = "<group>"; };
+		54B56C4A1FB24D890053F655 /* AvailableCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableCollectionCell.swift; sourceTree = "<group>"; };
+		54B56C4E1FB35B440053F655 /* SubTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubTableViewCell.swift; sourceTree = "<group>"; };
+		54B56C501FB364420053F655 /* SubViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubViewController.swift; sourceTree = "<group>"; };
 		80C802DB1FACF6BC0031B883 /* NoahsProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoahsProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80C802DE1FACF6BC0031B883 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		80C802E01FACF6BC0031B883 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -63,6 +73,11 @@
 				80C802E71FACF6BC0031B883 /* Assets.xcassets */,
 				80C802E91FACF6BC0031B883 /* LaunchScreen.storyboard */,
 				80C802EC1FACF6BC0031B883 /* Info.plist */,
+				54B56C401FB0FAD20053F655 /* DataModel.swift */,
+				54B56C481FB24C170053F655 /* AvailableViewController.swift */,
+				54B56C501FB364420053F655 /* SubViewController.swift */,
+				54B56C4A1FB24D890053F655 /* AvailableCollectionCell.swift */,
+				54B56C4E1FB35B440053F655 /* SubTableViewCell.swift */,
 			);
 			path = NoahsProject;
 			sourceTree = "<group>";
@@ -140,8 +155,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				54B56C491FB24C170053F655 /* AvailableViewController.swift in Sources */,
 				80C802E31FACF6BC0031B883 /* ViewController.swift in Sources */,
+				54B56C511FB364420053F655 /* SubViewController.swift in Sources */,
+				54B56C4F1FB35B440053F655 /* SubTableViewCell.swift in Sources */,
+				54B56C4B1FB24D890053F655 /* AvailableCollectionCell.swift in Sources */,
 				80C802DF1FACF6BC0031B883 /* AppDelegate.swift in Sources */,
+				54B56C411FB0FAD20053F655 /* DataModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,10 +299,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = VF9HCW6WNY;
+				DEVELOPMENT_TEAM = U6J58C8CJT;
 				INFOPLIST_FILE = NoahsProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Noahs.NoahsProject;
+				PRODUCT_BUNDLE_IDENTIFIER = Noahs.NoahsProject55;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -294,10 +314,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = VF9HCW6WNY;
+				DEVELOPMENT_TEAM = U6J58C8CJT;
 				INFOPLIST_FILE = NoahsProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Noahs.NoahsProject;
+				PRODUCT_BUNDLE_IDENTIFIER = Noahs.NoahsProject55;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
