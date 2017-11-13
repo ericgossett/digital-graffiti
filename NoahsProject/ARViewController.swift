@@ -13,6 +13,11 @@ class ARViewController: UIViewController, ARSCNViewDelegate {
 
     @IBOutlet weak var sceneView: ARSCNView!
     let configuration = ARWorldTrackingConfiguration()
+    
+    var boxSize = 0.1
+    var rotationY = 0
+    var texture = #imageLiteral(resourceName: "Grass")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.sceneView.debugOptions = [ARSCNDebugOptions.showWorldOrigin, ARSCNDebugOptions.showFeaturePoints]
@@ -22,25 +27,65 @@ class ARViewController: UIViewController, ARSCNViewDelegate {
         // Do any additional setup after loading the view.
     }
 
+    func renderer(_ renderer: SCNSceneRenderer, willRenderScene scene: SCNScene, atTime time: TimeInterval) {
+        guard let pointOfView = sceneView.pointOfView else {return}
+        let transform = pointOfView.transform
+        let orientation = SCNVector3(-transform.m31,-transform.m32,-transform.m33)
+        let location = SCNVector3(transform.m41,transform.m42,transform.m43)
+        let currentPositionOfCamera = orientation + location
+        let boxscale = CGFloat(boxSize)
+        
+        DispatchQueue.main.async {
+            let pointer = SCNNode(geometry: SCNBox(width: boxscale, height: boxscale, length: boxscale, chamferRadius: 0))
+            pointer.name = "pointer"
+            pointer.position = currentPositionOfCamera
+            pointer.eulerAngles = SCNVector3(0,self.rotationY,0)
+            pointer.geometry?.firstMaterial?.diffuse.contents = self.texture
+            self.sceneView.scene.rootNode.enumerateChildNodes({ (node, _) in
+                if node.name == "pointer" {
+                    node.removeFromParentNode()
+                }
+            })
+            self.sceneView.scene.rootNode.addChildNode(pointer)
+            //            pointer.geometry?.firstMaterial?.diffuse.contents = UIColor.red
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     @IBAction func drawContents(_ sender: Any) {
-        print("something")
+//        print("something")
+        guard let pointOfView = sceneView.pointOfView else {return}
+        let transform = pointOfView.transform
+        let orientation = SCNVector3(-transform.m31,-transform.m32,-transform.m33)
+        let location = SCNVector3(transform.m41,transform.m42,transform.m43)
+        let currentPositionOfCamera = orientation + location
+        let boxscale = CGFloat(boxSize)
+        let boxNode = SCNNode(geometry: SCNBox(width: boxscale, height: boxscale, length: boxscale, chamferRadius: 0))
+        boxNode.position = currentPositionOfCamera
+        boxNode.eulerAngles = SCNVector3(0,self.rotationY,0)
+        boxNode.geometry?.firstMaterial?.diffuse.contents = texture
+        //        boxNode.geometry?.firstMaterial?.diffuse.contents = UIColor.cyan
+        self.sceneView.scene.rootNode.addChildNode(boxNode)
     }
     @IBAction func sizeUp(_ sender: Any) {
-        print("sizeUp")
+        boxSize += 0.02
+//        print("sizeUp")
     }
     @IBAction func sizeDown(_ sender: Any) {
-        print("sizeDown")
+        boxSize -= 0.02
+//        print("sizeDown")
     }
     @IBAction func rotateLeft(_ sender: Any) {
-        print("rotateLeft")
+        rotationY -= 30
+//        print("rotateLeft")
     }
     @IBAction func rotateRight(_ sender: Any) {
-        print("rotateRight")
+        rotationY += 30
+//        print("rotateRight")
     }
     
     /*
@@ -52,5 +97,7 @@ class ARViewController: UIViewController, ARSCNViewDelegate {
         // Pass the selected object to the new view controller.
     }
     */
-
+}
+func +(left: SCNVector3, right: SCNVector3) -> SCNVector3 {
+    return SCNVector3Make(left.x + right.x, left.y + right.y, left.z + right.z)
 }
