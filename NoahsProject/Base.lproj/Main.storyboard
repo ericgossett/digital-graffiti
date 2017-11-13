@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5C6-m9-nPn">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5C6-m9-nPn">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -22,7 +22,7 @@
                     <connections>
                         <segue destination="x8H-ez-NtV" kind="relationship" relationship="viewControllers" id="X81-NI-VPt"/>
                         <segue destination="Iox-5f-PuX" kind="relationship" relationship="viewControllers" id="ds6-ff-YZg"/>
-                        <segue destination="BV1-FR-VrT" kind="relationship" relationship="viewControllers" id="0i8-xZ-ziA"/>
+                        <segue destination="iaB-r4-iP5" kind="relationship" relationship="viewControllers" id="XGd-54-l6I"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8RE-cW-dVr" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -149,22 +149,60 @@
             <point key="canvasLocation" x="-788" y="238.83058470764618"/>
         </scene>
         <!--ARView-->
-        <scene sceneID="tXr-a1-R10">
+        <scene sceneID="1mo-dQ-ZzL">
             <objects>
-                <viewController id="BV1-FR-VrT" customClass="ViewController" customModule="NoahsProject" customModuleProvider="target" sceneMemberID="viewController">
-                    <arscnView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="BrB-h1-WRS">
+                <viewController id="iaB-r4-iP5" customClass="ARViewController" customModule="NoahsProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hLd-dY-ZiX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    </arscnView>
-                    <tabBarItem key="tabBarItem" title="ARView" id="0y0-dC-vNm"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YSU-fB-sh2">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                            </arscnView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1cJ-RZ-blU" customClass="RoundButton" customModule="NoahsProject" customModuleProvider="target">
+                                <rect key="frame" x="162" y="548" width="50" height="50"/>
+                                <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="Ood-7s-9Xc"/>
+                                    <constraint firstAttribute="height" constant="50" id="VpH-Sp-pvd"/>
+                                </constraints>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Draw">
+                                            <attributes>
+                                                <font key="NSFont" metaFont="system" size="15"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="YSU-fB-sh2" firstAttribute="top" secondItem="hLd-dY-ZiX" secondAttribute="top" id="74f-eA-ddj"/>
+                            <constraint firstItem="CpJ-Ii-6M7" firstAttribute="bottom" secondItem="1cJ-RZ-blU" secondAttribute="bottom" constant="20" id="ObY-IX-iKW"/>
+                            <constraint firstItem="YSU-fB-sh2" firstAttribute="leading" secondItem="CpJ-Ii-6M7" secondAttribute="leading" id="Oxa-aF-qP8"/>
+                            <constraint firstItem="YSU-fB-sh2" firstAttribute="trailing" secondItem="CpJ-Ii-6M7" secondAttribute="trailing" id="Ywr-po-DA4"/>
+                            <constraint firstItem="1cJ-RZ-blU" firstAttribute="centerX" secondItem="hLd-dY-ZiX" secondAttribute="centerX" id="aR9-HE-V1s"/>
+                            <constraint firstItem="YSU-fB-sh2" firstAttribute="bottom" secondItem="CpJ-Ii-6M7" secondAttribute="bottom" id="sev-aF-xC6"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="CpJ-Ii-6M7"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="ARView" id="gEp-Bv-K5C"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="sceneView" destination="BrB-h1-WRS" id="5nT-qQ-ynl"/>
+                        <outlet property="drawButton" destination="1cJ-RZ-blU" id="o26-Mu-2Oc"/>
+                        <outlet property="sceneView" destination="YSU-fB-sh2" id="vzU-P8-yai"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="u9A-bV-sXQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1366" y="889"/>
+            <point key="canvasLocation" x="-1575" y="690"/>
         </scene>
         <!--Test View Controller-->
         <scene sceneID="uht-fl-P7F">
