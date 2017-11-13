@@ -9,6 +9,11 @@
 import UIKit
 import ARKit
 
+enum paintingBrush{
+    case box
+    case sphere
+}
+
 class ARViewController: UIViewController, ARSCNViewDelegate {
 
     @IBOutlet weak var sceneView: ARSCNView!
@@ -17,6 +22,8 @@ class ARViewController: UIViewController, ARSCNViewDelegate {
     var boxSize = 0.1
     var rotationY = 0
     var texture = #imageLiteral(resourceName: "Grass")
+    var brush = paintingBrush.box
+    var brushColor: UIColor!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +32,7 @@ class ARViewController: UIViewController, ARSCNViewDelegate {
         self.sceneView.session.run(configuration)
         self.sceneView.delegate = self
         // Do any additional setup after loading the view.
+        brushColor = UIColor.cyan
     }
 
     func renderer(_ renderer: SCNSceneRenderer, willRenderScene scene: SCNScene, atTime time: TimeInterval) {
@@ -36,11 +44,17 @@ class ARViewController: UIViewController, ARSCNViewDelegate {
         let boxscale = CGFloat(boxSize)
         
         DispatchQueue.main.async {
-            let pointer = SCNNode(geometry: SCNBox(width: boxscale, height: boxscale, length: boxscale, chamferRadius: 0))
+            var pointer = SCNNode()
+            if(self.brush == paintingBrush.box){
+                pointer = SCNNode(geometry: SCNBox(width: boxscale, height: boxscale, length: boxscale, chamferRadius: 0))
+                pointer.geometry?.firstMaterial?.diffuse.contents = self.texture
+            }else if (self.brush == paintingBrush.sphere){
+                pointer = SCNNode(geometry: SCNSphere(radius: 0.02))
+                pointer.geometry?.firstMaterial?.diffuse.contents = self.brushColor
+            }
             pointer.name = "pointer"
             pointer.position = currentPositionOfCamera
             pointer.eulerAngles = SCNVector3(0,self.rotationY,0)
-            pointer.geometry?.firstMaterial?.diffuse.contents = self.texture
             self.sceneView.scene.rootNode.enumerateChildNodes({ (node, _) in
                 if node.name == "pointer" {
                     node.removeFromParentNode()
@@ -57,19 +71,28 @@ class ARViewController: UIViewController, ARSCNViewDelegate {
     }
     
     @IBAction func drawContents(_ sender: Any) {
-//        print("something")
         guard let pointOfView = sceneView.pointOfView else {return}
         let transform = pointOfView.transform
         let orientation = SCNVector3(-transform.m31,-transform.m32,-transform.m33)
         let location = SCNVector3(transform.m41,transform.m42,transform.m43)
         let currentPositionOfCamera = orientation + location
-        let boxscale = CGFloat(boxSize)
-        let boxNode = SCNNode(geometry: SCNBox(width: boxscale, height: boxscale, length: boxscale, chamferRadius: 0))
-        boxNode.position = currentPositionOfCamera
-        boxNode.eulerAngles = SCNVector3(0,self.rotationY,0)
-        boxNode.geometry?.firstMaterial?.diffuse.contents = texture
-        //        boxNode.geometry?.firstMaterial?.diffuse.contents = UIColor.cyan
-        self.sceneView.scene.rootNode.addChildNode(boxNode)
+        
+        if(brush == paintingBrush.box){
+            // Minecraft functionality
+            let boxscale = CGFloat(boxSize)
+            let boxNode = SCNNode(geometry: SCNBox(width: boxscale, height: boxscale, length: boxscale, chamferRadius: 0))
+            boxNode.position = currentPositionOfCamera
+            boxNode.eulerAngles = SCNVector3(0,self.rotationY,0)
+            boxNode.geometry?.firstMaterial?.diffuse.contents = texture
+            //        boxNode.geometry?.firstMaterial?.diffuse.contents = UIColor.cyan
+            self.sceneView.scene.rootNode.addChildNode(boxNode)
+        }else if (brush == paintingBrush.sphere){
+            // AR drawing functionality
+            let sphereNode = SCNNode(geometry: SCNSphere(radius: 0.02))
+            sphereNode.position = currentPositionOfCamera
+            self.sceneView.scene.rootNode.addChildNode(sphereNode)
+            sphereNode.geometry?.firstMaterial?.diffuse.contents = self.brushColor
+        }
     }
     @IBAction func sizeUp(_ sender: Any) {
         boxSize += 0.02
@@ -105,6 +128,12 @@ class ARViewController: UIViewController, ARSCNViewDelegate {
     }
     @IBAction func brick(_ sender: Any) {
         texture = #imageLiteral(resourceName: "Brick")
+    }
+    @IBAction func boxBrush(_ sender: Any) {
+        brush = paintingBrush.box
+    }
+    @IBAction func sphereBrush(_ sender: Any) {
+        brush = paintingBrush.sphere
     }
     /*
     // MARK: - Navigation

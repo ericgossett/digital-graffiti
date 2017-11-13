@@ -265,6 +265,24 @@
                                     <action selector="plank:" destination="iaB-r4-iP5" eventType="touchUpInside" id="Za3-Ua-zjY"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rWJ-ZK-Jtg">
+                                <rect key="frame" x="217" y="454" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Cube"/>
+                                <connections>
+                                    <action selector="boxBrush:" destination="iaB-r4-iP5" eventType="touchUpInside" id="Z1S-S3-91Q"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4H6-UH-Z2t">
+                                <rect key="frame" x="107" y="454" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Sphere"/>
+                                <connections>
+                                    <action selector="sphereBrush:" destination="iaB-r4-iP5" eventType="touchUpInside" id="h9u-7Q-Jby"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -283,7 +301,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u9A-bV-sXQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1575" y="690"/>
+            <point key="canvasLocation" x="-1575.2" y="689.5052473763119"/>
         </scene>
         <!--Test View Controller-->
         <scene sceneID="uht-fl-P7F">
