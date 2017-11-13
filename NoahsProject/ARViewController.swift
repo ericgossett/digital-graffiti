@@ -11,7 +11,6 @@ import ARKit
 
 class ARViewController: UIViewController, ARSCNViewDelegate {
 
-    @IBOutlet weak var drawButton: RoundButton!
     @IBOutlet weak var sceneView: ARSCNView!
     let configuration = ARWorldTrackingConfiguration()
     override func viewDidLoad() {
@@ -28,7 +27,22 @@ class ARViewController: UIViewController, ARSCNViewDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-
+    @IBAction func drawContents(_ sender: Any) {
+        print("something")
+    }
+    @IBAction func sizeUp(_ sender: Any) {
+        print("sizeUp")
+    }
+    @IBAction func sizeDown(_ sender: Any) {
+        print("sizeDown")
+    }
+    @IBAction func rotateLeft(_ sender: Any) {
+        print("rotateLeft")
+    }
+    @IBAction func rotateRight(_ sender: Any) {
+        print("rotateRight")
+    }
+    
     /*
     // MARK: - Navigation
 
