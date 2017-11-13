@@ -7,13 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8080DE2C1FB0BF89008142E1 /* ModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8080DE2B1FB0BF89008142E1 /* ModelManager.swift */; };
-		8080DE2E1FB0EC13008142E1 /* SubscriptionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8080DE2D1FB0EC13008142E1 /* SubscriptionManager.swift */; };
 		54B56C411FB0FAD20053F655 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B56C401FB0FAD20053F655 /* DataModel.swift */; };
 		54B56C491FB24C170053F655 /* AvailableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B56C481FB24C170053F655 /* AvailableViewController.swift */; };
 		54B56C4B1FB24D890053F655 /* AvailableCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B56C4A1FB24D890053F655 /* AvailableCollectionCell.swift */; };
 		54B56C4F1FB35B440053F655 /* SubTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B56C4E1FB35B440053F655 /* SubTableViewCell.swift */; };
 		54B56C511FB364420053F655 /* SubViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B56C501FB364420053F655 /* SubViewController.swift */; };
+		7F522B041FB949CE0071EABE /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F522B031FB949CE0071EABE /* RoundButton.swift */; };
+		7F522B061FB94BEF0071EABE /* ARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F522B051FB94BEF0071EABE /* ARViewController.swift */; };
+		8080DE2C1FB0BF89008142E1 /* ModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8080DE2B1FB0BF89008142E1 /* ModelManager.swift */; };
+		8080DE2E1FB0EC13008142E1 /* SubscriptionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8080DE2D1FB0EC13008142E1 /* SubscriptionManager.swift */; };
 		80C802DF1FACF6BC0031B883 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C802DE1FACF6BC0031B883 /* AppDelegate.swift */; };
 		80C802E11FACF6BC0031B883 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 80C802E01FACF6BC0031B883 /* art.scnassets */; };
 		80C802E31FACF6BC0031B883 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C802E21FACF6BC0031B883 /* ViewController.swift */; };
@@ -25,13 +27,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		8080DE2B1FB0BF89008142E1 /* ModelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelManager.swift; sourceTree = "<group>"; };
-		8080DE2D1FB0EC13008142E1 /* SubscriptionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionManager.swift; sourceTree = "<group>"; };
 		54B56C401FB0FAD20053F655 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		54B56C481FB24C170053F655 /* AvailableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableViewController.swift; sourceTree = "<group>"; };
 		54B56C4A1FB24D890053F655 /* AvailableCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableCollectionCell.swift; sourceTree = "<group>"; };
 		54B56C4E1FB35B440053F655 /* SubTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubTableViewCell.swift; sourceTree = "<group>"; };
 		54B56C501FB364420053F655 /* SubViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubViewController.swift; sourceTree = "<group>"; };
+		7F522B031FB949CE0071EABE /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
+		7F522B051FB94BEF0071EABE /* ARViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewController.swift; sourceTree = "<group>"; };
+		8080DE2B1FB0BF89008142E1 /* ModelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelManager.swift; sourceTree = "<group>"; };
+		8080DE2D1FB0EC13008142E1 /* SubscriptionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionManager.swift; sourceTree = "<group>"; };
 		80C802DB1FACF6BC0031B883 /* NoahsProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoahsProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80C802DE1FACF6BC0031B883 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		80C802E01FACF6BC0031B883 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -78,6 +82,7 @@
 				80C802F61FACF9180031B883 /* APITestViewController.swift */,
 				80C802E01FACF6BC0031B883 /* art.scnassets */,
 				80C802E21FACF6BC0031B883 /* ViewController.swift */,
+				7F522B051FB94BEF0071EABE /* ARViewController.swift */,
 				80C802E41FACF6BC0031B883 /* Main.storyboard */,
 				80C802F21FACF8870031B883 /* APIClient.swift */,
 				8080DE2B1FB0BF89008142E1 /* ModelManager.swift */,
@@ -90,6 +95,7 @@
 				54B56C501FB364420053F655 /* SubViewController.swift */,
 				54B56C4A1FB24D890053F655 /* AvailableCollectionCell.swift */,
 				54B56C4E1FB35B440053F655 /* SubTableViewCell.swift */,
+				7F522B031FB949CE0071EABE /* RoundButton.swift */,
 			);
 			path = NoahsProject;
 			sourceTree = "<group>";
@@ -167,6 +173,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F522B041FB949CE0071EABE /* RoundButton.swift in Sources */,
 				54B56C491FB24C170053F655 /* AvailableViewController.swift in Sources */,
 				80C802E31FACF6BC0031B883 /* ViewController.swift in Sources */,
 				54B56C511FB364420053F655 /* SubViewController.swift in Sources */,
@@ -175,6 +182,7 @@
 				80C802DF1FACF6BC0031B883 /* AppDelegate.swift in Sources */,
 				8080DE2E1FB0EC13008142E1 /* SubscriptionManager.swift in Sources */,
 				80C802F31FACF8870031B883 /* APIClient.swift in Sources */,
+				7F522B061FB94BEF0071EABE /* ARViewController.swift in Sources */,
 				80C802F71FACF9180031B883 /* APITestViewController.swift in Sources */,
 				8080DE2C1FB0BF89008142E1 /* ModelManager.swift in Sources */,
 				54B56C411FB0FAD20053F655 /* DataModel.swift in Sources */,
@@ -315,10 +323,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = U6J58C8CJT;
+				DEVELOPMENT_TEAM = G73NWSQ28B;
 				INFOPLIST_FILE = NoahsProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Noahs.NoahsProject55;
+				PRODUCT_BUNDLE_IDENTIFIER = Noahs.NoahsProjects57;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -330,10 +338,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = U6J58C8CJT;
+				DEVELOPMENT_TEAM = G73NWSQ28B;
 				INFOPLIST_FILE = NoahsProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Noahs.NoahsProject55;
+				PRODUCT_BUNDLE_IDENTIFIER = Noahs.NoahsProjects57;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
