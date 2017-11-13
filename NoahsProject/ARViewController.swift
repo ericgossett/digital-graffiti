@@ -88,6 +88,24 @@ class ARViewController: UIViewController, ARSCNViewDelegate {
 //        print("rotateRight")
     }
     
+    @IBAction func plank(_ sender: Any) {
+        texture = #imageLiteral(resourceName: "Plank")
+    }
+    @IBAction func diamond(_ sender: Any) {
+        texture = #imageLiteral(resourceName: "Diamond")
+    }
+    @IBAction func stone(_ sender: Any) {
+        texture = #imageLiteral(resourceName: "Stone")
+    }
+    @IBAction func grass(_ sender: Any) {
+        texture = #imageLiteral(resourceName: "Grass")
+    }
+    @IBAction func glass(_ sender: Any) {
+        texture = #imageLiteral(resourceName: "Glass")
+    }
+    @IBAction func brick(_ sender: Any) {
+        texture = #imageLiteral(resourceName: "Brick")
+    }
     /*
     // MARK: - Navigation
 

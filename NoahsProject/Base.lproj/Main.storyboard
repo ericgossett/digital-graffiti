@@ -217,6 +217,54 @@
                                     <action selector="sizeDown:" destination="iaB-r4-iP5" eventType="touchUpInside" id="Mig-y6-isr"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b3d-yg-kGK" customClass="RoundButton" customModule="NoahsProject" customModuleProvider="target">
+                                <rect key="frame" x="266" y="504" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="1" backgroundImage="Brick"/>
+                                <connections>
+                                    <action selector="brick:" destination="iaB-r4-iP5" eventType="touchUpInside" id="wnW-pU-eea"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hlx-tA-CuQ" customClass="RoundButton" customModule="NoahsProject" customModuleProvider="target">
+                                <rect key="frame" x="301" y="504" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="2" backgroundImage="Glass"/>
+                                <connections>
+                                    <action selector="glass:" destination="iaB-r4-iP5" eventType="touchUpInside" id="nXm-Bz-MiW"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S4R-WF-ToK" customClass="RoundButton" customModule="NoahsProject" customModuleProvider="target">
+                                <rect key="frame" x="336" y="504" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="3" backgroundImage="Grass"/>
+                                <connections>
+                                    <action selector="grass:" destination="iaB-r4-iP5" eventType="touchUpInside" id="Fvd-de-hNN"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YdH-y9-dAY" customClass="RoundButton" customModule="NoahsProject" customModuleProvider="target">
+                                <rect key="frame" x="266" y="542" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="4" backgroundImage="Stone"/>
+                                <connections>
+                                    <action selector="stone:" destination="iaB-r4-iP5" eventType="touchUpInside" id="VpD-bN-Ci4"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4wf-Wy-T8C" customClass="RoundButton" customModule="NoahsProject" customModuleProvider="target">
+                                <rect key="frame" x="301" y="542" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="5" backgroundImage="Diamond"/>
+                                <connections>
+                                    <action selector="diamond:" destination="iaB-r4-iP5" eventType="touchUpInside" id="5Z3-h8-ec2"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DqJ-l0-Z16" customClass="RoundButton" customModule="NoahsProject" customModuleProvider="target">
+                                <rect key="frame" x="336" y="542" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="6" backgroundImage="Plank"/>
+                                <connections>
+                                    <action selector="plank:" destination="iaB-r4-iP5" eventType="touchUpInside" id="Za3-Ua-zjY"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -276,6 +324,12 @@
     </scenes>
     <resources>
         <image name="AddIcon" width="512" height="512"/>
+        <image name="Brick" width="16" height="16"/>
+        <image name="Diamond" width="16" height="16"/>
+        <image name="Glass" width="16" height="16"/>
+        <image name="Grass" width="16" height="16"/>
+        <image name="Plank" width="16" height="16"/>
+        <image name="Stone" width="16" height="16"/>
         <image name="checkIcon" width="512" height="512"/>
     </resources>
 </document>
