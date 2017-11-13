@@ -50,10 +50,10 @@ class ARViewController: UIViewController, ARSCNViewDelegate {
                 pointer = SCNNode(geometry: SCNBox(width: boxscale, height: boxscale, length: boxscale, chamferRadius: 0))
                 pointer.geometry?.firstMaterial?.diffuse.contents = self.texture
             }else if (self.brush == paintingBrush.sphere){
-                pointer = SCNNode(geometry: SCNSphere(radius: 0.02))
+                pointer = SCNNode(geometry: SCNSphere(radius: boxscale/10))
                 pointer.geometry?.firstMaterial?.diffuse.contents = self.brushColor
                 if(self.drawButton.isHighlighted){
-                    let sphereNode = SCNNode(geometry: SCNSphere(radius: 0.02))
+                    let sphereNode = SCNNode(geometry: SCNSphere(radius: boxscale/10))
                     sphereNode.geometry?.firstMaterial?.diffuse.contents = self.brushColor
                     sphereNode.position = currentPositionOfCamera
                     sphereNode.name = "sphere"
@@ -94,12 +94,6 @@ class ARViewController: UIViewController, ARSCNViewDelegate {
             boxNode.geometry?.firstMaterial?.diffuse.contents = texture
             //        boxNode.geometry?.firstMaterial?.diffuse.contents = UIColor.cyan
             self.sceneView.scene.rootNode.addChildNode(boxNode)
-        }else if (brush == paintingBrush.sphere){
-            // AR drawing functionality
-            let sphereNode = SCNNode(geometry: SCNSphere(radius: 0.02))
-            sphereNode.position = currentPositionOfCamera
-            self.sceneView.scene.rootNode.addChildNode(sphereNode)
-            sphereNode.geometry?.firstMaterial?.diffuse.contents = self.brushColor
         }
     }
     @IBAction func sizeUp(_ sender: Any) {
@@ -142,6 +136,33 @@ class ARViewController: UIViewController, ARSCNViewDelegate {
     }
     @IBAction func sphereBrush(_ sender: Any) {
         brush = paintingBrush.sphere
+    }
+    @IBAction func red(_ sender: Any) {
+        brushColor = UIColor.red
+    }
+    @IBAction func yellow(_ sender: Any) {
+        brushColor = UIColor.yellow
+    }
+    @IBAction func green(_ sender: Any) {
+        brushColor = UIColor.green
+    }
+    @IBAction func cyan(_ sender: Any) {
+        brushColor = UIColor.cyan
+    }
+    @IBAction func blue(_ sender: Any) {
+        brushColor = UIColor.blue
+    }
+    @IBAction func purple(_ sender: Any) {
+        brushColor = UIColor.purple
+    }
+    @IBAction func white(_ sender: Any) {
+        brushColor = UIColor.white
+    }
+    @IBAction func gray(_ sender: Any) {
+        brushColor = UIColor.gray
+    }
+    @IBAction func black(_ sender: Any) {
+        brushColor = UIColor.black
     }
     /*
     // MARK: - Navigation
