@@ -296,6 +296,7 @@
                     <tabBarItem key="tabBarItem" title="ARView" id="gEp-Bv-K5C"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="drawButton" destination="1cJ-RZ-blU" id="rPn-Ai-0hI"/>
                         <outlet property="sceneView" destination="YSU-fB-sh2" id="vzU-P8-yai"/>
                     </connections>
                 </viewController>

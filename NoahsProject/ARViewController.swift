@@ -16,6 +16,7 @@ enum paintingBrush{
 
 class ARViewController: UIViewController, ARSCNViewDelegate {
 
+    @IBOutlet weak var drawButton: RoundButton!
     @IBOutlet weak var sceneView: ARSCNView!
     let configuration = ARWorldTrackingConfiguration()
     
@@ -51,6 +52,13 @@ class ARViewController: UIViewController, ARSCNViewDelegate {
             }else if (self.brush == paintingBrush.sphere){
                 pointer = SCNNode(geometry: SCNSphere(radius: 0.02))
                 pointer.geometry?.firstMaterial?.diffuse.contents = self.brushColor
+                if(self.drawButton.isHighlighted){
+                    let sphereNode = SCNNode(geometry: SCNSphere(radius: 0.02))
+                    sphereNode.geometry?.firstMaterial?.diffuse.contents = self.brushColor
+                    sphereNode.position = currentPositionOfCamera
+                    sphereNode.name = "sphere"
+                    self.sceneView.scene.rootNode.addChildNode(sphereNode)
+                }
             }
             pointer.name = "pointer"
             pointer.position = currentPositionOfCamera
