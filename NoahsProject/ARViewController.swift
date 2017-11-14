@@ -8,6 +8,7 @@
 
 import UIKit
 import ARKit
+import SceneKit
 
 enum paintingBrush{
     case box
@@ -34,6 +35,24 @@ class ARViewController: UIViewController, ARSCNViewDelegate {
         self.sceneView.delegate = self
         // Do any additional setup after loading the view.
         brushColor = UIColor.cyan
+        
+        // Try to work with the other two scenes
+        loadCustomModel()
+    }
+    
+    func loadCustomModel(){
+        let scene = SCNScene()
+        let modelManager = ModelManager()
+        modelManager.saveAssets(username: "Test") {(modelFile, TextureFile) in
+            
+            //let data = try! String(contentsOf: modelFile, encoding: .utf8)
+            //print("data: \(data) *****")
+            let node = try! modelManager.getSCNNode(username: "Test")
+            node.scale = SCNVector3(0.01,0.01, 0.01)
+            node.position = SCNVector3(0,0,-10)
+            scene.rootNode.addChildNode(node)
+            self.sceneView.scene = scene
+        }
     }
 
     func renderer(_ renderer: SCNSceneRenderer, willRenderScene scene: SCNScene, atTime time: TimeInterval) {
@@ -96,6 +115,18 @@ class ARViewController: UIViewController, ARSCNViewDelegate {
             self.sceneView.scene.rootNode.addChildNode(boxNode)
         }
     }
+    
+    @IBAction func clean(_ sender: Any) {
+        restartSession()
+    }
+    func restartSession(){
+        self.sceneView.session.pause()
+        self.sceneView.scene.rootNode.enumerateChildNodes { (node, _) in
+            node.removeFromParentNode()
+        }
+        self.sceneView.session.run(configuration, options: [.resetTracking, .removeExistingAnchors])
+    }
+    
     @IBAction func sizeUp(_ sender: Any) {
         boxSize += 0.02
 //        print("sizeUp")
