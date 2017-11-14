@@ -1,11 +1,27 @@
-//
-//  DataModel.swift
-//  NoahsProject
-//
-//  Created by ece on 11/6/17.
-//  Copyright © 2017 Duke University. All rights reserved.
-//
-
 import Foundation
+import UIKit
+struct loadedArtist {
+    var artist : Artist
+    var artistImage=UIImage()
+}
 
-var subArr = [String]()
+var myClient=APIClient()
+var availableArtists = [loadedArtist]()
+var subscribedArtists = [loadedArtist]()
+func artistInAvailable(checkArtist: Artist)->Bool{
+    for curArtist in availableArtists{
+        if curArtist.artist.username==checkArtist.username{
+            return true
+        }
+    }
+    return false
+}
+func artistInSubscribed(checkArtist: Artist)->Bool{
+    for curArtist in subscribedArtists{
+        if curArtist.artist.username==checkArtist.username{
+            return true
+        }
+    }
+    return false
+}
+

@@ -21,13 +21,14 @@ class SubViewController: UITableViewController{
     }
     override func tableView (_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "subTableCell") as! SubTableViewCell
-        cell.subCellLab.text=subArr[indexPath.row]
+        cell.subCellLab.text=subscribedArtists[indexPath.row].artist.username
+        cell.subCellIm.image=subscribedArtists[indexPath.row].artistImage
         return cell
     }
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let curRow = indexPath.row
-            subArr.remove(at: curRow)
+            subscribedArtists.remove(at: curRow)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
@@ -35,14 +36,15 @@ class SubViewController: UITableViewController{
     {
         return 115.0
     }
-//    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//        return "Subscriptions"
-//    }
-
+    //    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    //        return "Subscriptions"
+    //    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return subArr.count
+        return subscribedArtists.count
     }
     override func numberOfSections(in tableView: UITableView) -> Int{
         return 1
     }
 }
+

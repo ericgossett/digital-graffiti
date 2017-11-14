@@ -10,25 +10,76 @@ import Foundation
 import UIKit
 
 class AvailableViewController:UIViewController, UICollectionViewDataSource, UICollectionViewDelegate{
-    
     @IBOutlet weak var availableCollectionView: UICollectionView!
+    var firstLoad=true
     override func viewDidLoad() {
+        super.viewDidLoad()
+        print("here")
+        print("now here")
         availableCollectionView.delegate = self
         availableCollectionView.dataSource = self
         availableCollectionView.frame=self.view!.frame
+        
+        //        if firstLoad{
+        //            myClient.fetchUserList { (returnedArtists) in
+        //                for curArtist in returnedArtists{
+        //                    if !artistInAvailable(checkArtist: curArtist){
+        //                        myClient.fetchTag(username: curArtist.username, completion: {(imgData) in
+        //                            var curLoadArtist=loadedArtist(artist: curArtist, artistImage:UIImage(data: imgData)!)
+        //                            availableArtists.append(curLoadArtist)
+        //                        })
+        //                    }
+        //                }
+        //                self.availableCollectionView.reloadData()
+        //            }
+        //        }
+        //        self.firstLoad=false
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        print("view appeared")
+        if self.firstLoad{myClient.fetchUserList { (returnedArtists) in
+            for curArtist in returnedArtists{
+                if !artistInAvailable(checkArtist: curArtist){
+                    myClient.fetchTag(username: curArtist.username, completion: {(imgData) in
+                        let curLoadArtist=loadedArtist(artist: curArtist, artistImage:UIImage(data: imgData)!)
+                        if !artistInAvailable(checkArtist: curArtist){ availableArtists.append(curLoadArtist)}
+                        self.availableCollectionView.reloadData()
+                    })
+                }
+            }
+            
+            }}
+        self.firstLoad=false
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         availableCollectionView.reloadData()
+        myClient.fetchUserList { (returnedArtists) in
+            for curArtist in returnedArtists{
+                if !artistInAvailable(checkArtist: curArtist){
+                    myClient.fetchTag(username: curArtist.username, completion: {(imgData) in
+                        let curLoadArtist=loadedArtist(artist: curArtist, artistImage:UIImage(data: imgData)!)
+                        if !artistInAvailable(checkArtist: curArtist){ availableArtists.append(curLoadArtist)}
+                        self.availableCollectionView.reloadData()
+                    })
+                }
+            }
+            
+        }
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 100
+        print(availableArtists.count)
+        return availableArtists.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let  cell = collectionView.dequeueReusableCell(withReuseIdentifier: "availableCollectionCell", for: indexPath) as! AvailableCollectionCell
-        cell.cellLab.text="Artist "+String(indexPath.item)
-        let isSubbed = subArr.contains("Artist "+String(indexPath.item))
+        let curArtist = availableArtists[indexPath.item]
+        cell.cellLab.text=curArtist.artist.username
+        cell.cellIm.image=curArtist.artistImage
+        let isSubbed = artistInSubscribed(checkArtist: curArtist.artist)
         cell.cellCheck.isHidden = !isSubbed
         return cell
     }
@@ -39,12 +90,14 @@ class AvailableViewController:UIViewController, UICollectionViewDataSource, UICo
         let cell = collectionView.cellForItem(at: indexPath) as! AvailableCollectionCell
         cell.cellCheck.isHidden = false
         cell.cellLab.isHidden = false
-        if !subArr.contains(cell.cellLab.text!){
-            subArr.append(cell.cellLab.text!)
+        let curLoadArtist = availableArtists[indexPath.item]
+        let curArtist = curLoadArtist.artist
+        if !artistInSubscribed(checkArtist: curArtist){
+            subscribedArtists.append(curLoadArtist)
         }
-        print(subArr)
     }
     private func collectionView(collectionView: UICollectionView, didEndDisplayingSupplementaryView view: UICollectionReusableView, forElementOfKind elementKind: String, atIndexPath indexPath: IndexPath) {
         
     }
 }
+
