@@ -6,6 +6,7 @@ struct loadedArtist {
 }
 
 var myClient=APIClient()
+var subscriptions = SubscriptionManager()
 var availableArtists = [loadedArtist]()
 var subscribedArtists = [loadedArtist]()
 func artistInAvailable(checkArtist: Artist)->Bool{
@@ -17,8 +18,14 @@ func artistInAvailable(checkArtist: Artist)->Bool{
     return false
 }
 func artistInSubscribed(checkArtist: Artist)->Bool{
+    /*
     for curArtist in subscribedArtists{
         if curArtist.artist.username==checkArtist.username{
+            return true
+        }
+    }*/
+    for piece in subscriptions.subscriptions() {
+        if piece.username == checkArtist.username {
             return true
         }
     }
