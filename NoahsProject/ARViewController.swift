@@ -10,6 +10,9 @@ import UIKit
 import ARKit
 import Vision
 
+// hard coded data for testing
+let targetList = ["tabby cat", "iPod", "dog"]
+
 class ARViewController: UIViewController, ARSCNViewDelegate {
 
     @IBOutlet weak var identifiedObject: UILabel!
@@ -51,9 +54,16 @@ class ARViewController: UIViewController, ARSCNViewDelegate {
                         // Jump onto the main thread
                         DispatchQueue.main.async {
                             // Access the first result in the array after casting the array as a VNClassificationObservation array
+//                            guard let results = request.results as? [VNClassificationObservation], let result = results.first else {
+//                                self.identifiedObject.text = "No results?"
+//                                return
+//                            }
                             guard let results = request.results as? [VNClassificationObservation], let result = results.first else {
                                 self.identifiedObject.text = "No results?"
                                 return
+                            }
+                            if self.checkTargetList(str: result.identifier){
+                                self.addaModel()
                             }
                             self.identifiedObject.text = result.identifier
                             // Create a transform with a translation of 0.2 meters in front of the camera
@@ -74,6 +84,28 @@ class ARViewController: UIViewController, ARSCNViewDelegate {
         }
     }
     
+    func checkTargetList(str: String) -> Bool{
+        for string in targetList{
+            if(string == str){
+                return true
+            }
+        }
+        return false
+    }
+    
+    func addaModel(){
+        guard let pointOfView = sceneView.pointOfView else {return}
+        let transform = pointOfView.transform
+        let orientation = SCNVector3(-transform.m31,-transform.m32,-transform.m33)
+        let location = SCNVector3(transform.m41,transform.m42,transform.m43)
+        let currentPositionOfCamera = orientation + location
+        let targetPosition = SCNVector3(currentPositionOfCamera.x,currentPositionOfCamera.y,currentPositionOfCamera.z - 0.3)
+        
+        let sphereNode = SCNNode(geometry: SCNSphere(radius: 0.02))
+        sphereNode.position = targetPosition
+        self.sceneView.scene.rootNode.addChildNode(sphereNode)
+        sphereNode.geometry?.firstMaterial?.diffuse.contents = UIColor.cyan
+    }
 }
 
 func +(left: SCNVector3, right: SCNVector3) -> SCNVector3 {
