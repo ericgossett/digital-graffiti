@@ -26,8 +26,8 @@
                         <color key="selectedImageTintColor" red="0.18745169040000001" green="0.8082765341" blue="0.69306534529999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
-                        <segue destination="x8H-ez-NtV" kind="relationship" relationship="viewControllers" id="X81-NI-VPt"/>
-                        <segue destination="Iox-5f-PuX" kind="relationship" relationship="viewControllers" id="ds6-ff-YZg"/>
+                        <segue destination="ppz-eO-EwC" kind="relationship" relationship="viewControllers" id="X81-NI-VPt"/>
+                        <segue destination="Yuq-gO-CLr" kind="relationship" relationship="viewControllers" id="ds6-ff-YZg"/>
                         <segue destination="iaB-r4-iP5" kind="relationship" relationship="viewControllers" id="XGd-54-l6I"/>
                     </connections>
                 </tabBarController>
@@ -44,7 +44,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ZcG-7o-P8b">
-                                <rect key="frame" x="0.0" y="30" width="768" height="945"/>
+                                <rect key="frame" x="0.0" y="74" width="768" height="901"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="25" minimumInteritemSpacing="25" id="uNn-7x-9V0">
                                     <size key="itemSize" width="401" height="178"/>
@@ -111,10 +111,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="lxa-Fb-1yW"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Tags" image="icon-roller" id="6r2-la-Lq3">
-                        <inset key="imageInsets" minX="0.0" minY="-11" maxX="0.0" maxY="0.0"/>
-                        <offsetWrapper key="titlePositionAdjustment" horizontal="-34" vertical="13"/>
-                    </tabBarItem>
+                    <navigationItem key="navigationItem" title="Tags" id="Viz-3I-8Bo"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="availableCollectionView" destination="ZcG-7o-P8b" id="nHG-Id-QpS"/>
@@ -122,9 +119,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M4D-9Y-5w9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-892.1875" y="-520.8984375"/>
+            <point key="canvasLocation" x="124" y="-521"/>
         </scene>
-        <!--Subs-->
+        <!--Subscriptions-->
         <scene sceneID="5wp-As-830">
             <objects>
                 <tableViewController id="Iox-5f-PuX" customClass="SubViewController" customModule="NoahsProject" customModuleProvider="target" sceneMemberID="viewController">
@@ -165,10 +162,7 @@
                             <outlet property="delegate" destination="Iox-5f-PuX" id="mvk-8n-LXJ"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Subs" image="icon-collection" id="zGL-Vs-2Sy">
-                        <inset key="imageInsets" minX="0.0" minY="-15" maxX="0.0" maxY="0.0"/>
-                        <offsetWrapper key="titlePositionAdjustment" horizontal="-33" vertical="13"/>
-                    </tabBarItem>
+                    <navigationItem key="navigationItem" title="Subscriptions" id="dCa-BA-wrL"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="subTableView" destination="EBC-Z1-T07" id="yGG-h2-l24"/>
@@ -176,7 +170,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MGR-3p-WZr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-788" y="238.83058470764618"/>
+            <point key="canvasLocation" x="124" y="238"/>
         </scene>
         <!--AR-->
         <scene sceneID="1mo-dQ-ZzL">
@@ -497,7 +491,61 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ghF-Rq-Hwf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="415" y="746"/>
+            <point key="canvasLocation" x="1336" y="783"/>
+        </scene>
+        <!--Tags-->
+        <scene sceneID="0kj-c9-tH8">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ppz-eO-EwC" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Tags" image="icon-roller" id="6r2-la-Lq3">
+                        <inset key="imageInsets" minX="0.0" minY="-11" maxX="0.0" maxY="0.0"/>
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="-34" vertical="13"/>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="5TR-wU-tKh">
+                        <rect key="frame" x="0.0" y="20" width="768" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.19250708820000001" green="0.17444026469999999" blue="0.40348964929999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="SedgwickAveDisplay-Regular" family="Sedgwick Ave Display" pointSize="17"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="x8H-ez-NtV" kind="relationship" relationship="rootViewController" id="84k-sJ-GRD"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uvv-i9-G9G" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-788" y="-521"/>
+        </scene>
+        <!--Subs-->
+        <scene sceneID="oxt-Rl-kdS">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Yuq-gO-CLr" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Subs" image="icon-collection" id="zGL-Vs-2Sy">
+                        <inset key="imageInsets" minX="0.0" minY="-15" maxX="0.0" maxY="0.0"/>
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="-33" vertical="13"/>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="RVU-7q-xVP">
+                        <rect key="frame" x="0.0" y="20" width="768" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.19250708820000001" green="0.17444026469999999" blue="0.40348964929999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="SedgwickAveDisplay-Regular" family="Sedgwick Ave Display" pointSize="17"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Iox-5f-PuX" kind="relationship" relationship="rootViewController" id="vdY-JL-aWY"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7Qb-9d-oVa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-788.28125" y="238.47656249999997"/>
         </scene>
     </scenes>
     <resources>
