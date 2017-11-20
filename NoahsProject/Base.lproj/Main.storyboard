@@ -22,7 +22,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <color key="barTintColor" red="0.19129446148872375" green="0.17685040831565857" blue="0.40585434436798096" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.13765904307365417" green="0.18474492430686951" blue="0.24164861440658569" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="selectedImageTintColor" red="0.18745169040000001" green="0.8082765341" blue="0.69306534529999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="x8H-ez-NtV" kind="relationship" relationship="viewControllers" id="X81-NI-VPt"/>
@@ -34,7 +35,7 @@
             </objects>
             <point key="canvasLocation" x="-1574" y="-101"/>
         </scene>
-        <!--Available-->
+        <!--Tags-->
         <scene sceneID="OxS-H8-Yas">
             <objects>
                 <viewController id="x8H-ez-NtV" customClass="AvailableViewController" customModule="NoahsProject" customModuleProvider="target" sceneMemberID="viewController">
@@ -110,7 +111,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="lxa-Fb-1yW"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Available" id="6r2-la-Lq3"/>
+                    <tabBarItem key="tabBarItem" title="Tags" image="icon-roller" id="6r2-la-Lq3">
+                        <inset key="imageInsets" minX="0.0" minY="-11" maxX="0.0" maxY="0.0"/>
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="-34" vertical="13"/>
+                    </tabBarItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="availableCollectionView" destination="ZcG-7o-P8b" id="nHG-Id-QpS"/>
@@ -161,7 +165,10 @@
                             <outlet property="delegate" destination="Iox-5f-PuX" id="mvk-8n-LXJ"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Subs" id="zGL-Vs-2Sy"/>
+                    <tabBarItem key="tabBarItem" title="Subs" image="icon-collection" id="zGL-Vs-2Sy">
+                        <inset key="imageInsets" minX="0.0" minY="-15" maxX="0.0" maxY="0.0"/>
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="-33" vertical="13"/>
+                    </tabBarItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="subTableView" destination="EBC-Z1-T07" id="yGG-h2-l24"/>
@@ -171,7 +178,7 @@
             </objects>
             <point key="canvasLocation" x="-788" y="238.83058470764618"/>
         </scene>
-        <!--ARView-->
+        <!--AR-->
         <scene sceneID="1mo-dQ-ZzL">
             <objects>
                 <viewController id="iaB-r4-iP5" customClass="ARViewController" customModule="NoahsProject" customModuleProvider="target" sceneMemberID="viewController">
@@ -442,7 +449,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="CpJ-Ii-6M7"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="ARView" id="gEp-Bv-K5C"/>
+                    <tabBarItem key="tabBarItem" title="AR" image="icon-camera" id="gEp-Bv-K5C">
+                        <inset key="imageInsets" minX="0.0" minY="-13" maxX="0.0" maxY="0.0"/>
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="-28" vertical="13"/>
+                    </tabBarItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="drawButton" destination="1cJ-RZ-blU" id="rPn-Ai-0hI"/>
@@ -499,5 +509,8 @@
         <image name="Plank" width="16" height="16"/>
         <image name="Stone" width="16" height="16"/>
         <image name="checkIcon" width="512" height="512"/>
+        <image name="icon-camera" width="25" height="25"/>
+        <image name="icon-collection" width="25" height="25"/>
+        <image name="icon-roller" width="25" height="25"/>
     </resources>
 </document>
