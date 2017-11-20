@@ -23,6 +23,13 @@ class SubViewController: UITableViewController{
         let cell = tableView.dequeueReusableCell(withIdentifier: "subTableCell") as! SubTableViewCell
         cell.subCellLab.text=subscribedArtists[indexPath.row].artist.username
         cell.subCellIm.image=subscribedArtists[indexPath.row].artistImage
+        
+        // Make divider line full width
+        cell.preservesSuperviewLayoutMargins = false
+        cell.separatorInset = UIEdgeInsets.zero
+        cell.layoutMargins = UIEdgeInsets.zero
+
+        
         return cell
     }
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {

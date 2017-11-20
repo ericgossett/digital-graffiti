@@ -5,12 +5,16 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
         <array key="HelveticaNeueLights.ttc">
             <string>HelveticaNeue-Light</string>
+        </array>
+        <array key="SedgwickAveDisplay-Regular.ttf">
+            <string>SedgwickAveDisplay-Regular</string>
         </array>
     </customFonts>
     <scenes>
@@ -128,7 +132,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="EBC-Z1-T07">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.95750325920000001" green="0.96874874830000002" blue="0.97677546739999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="subTableCell" rowHeight="113" id="1ad-Ok-ueh" customClass="SubTableViewCell" customModule="NoahsProject" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="768" height="113"/>
@@ -137,19 +141,29 @@
                                     <rect key="frame" x="0.0" y="0.0" width="768" height="112.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="checkIcon" translatesAutoresizingMaskIntoConstraints="NO" id="pKs-9F-oSA">
-                                            <rect key="frame" x="8" y="0.0" width="128" height="112"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WHz-3s-2J5">
-                                            <rect key="frame" x="144" y="29" width="195" height="55"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WHz-3s-2J5">
+                                            <rect key="frame" x="414" y="0.0" width="320" height="112"/>
+                                            <fontDescription key="fontDescription" name="SedgwickAveDisplay-Regular" family="Sedgwick Ave Display" pointSize="26"/>
                                             <color key="textColor" red="0.30165708065032959" green="0.28916609287261963" blue="0.48051774501800537" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkIcon" translatesAutoresizingMaskIntoConstraints="NO" id="pKs-9F-oSA">
+                                            <rect key="frame" x="33" y="7" width="307" height="97"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="307" id="qTe-0B-8Gz"/>
+                                            </constraints>
+                                        </imageView>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="bottomMargin" secondItem="pKs-9F-oSA" secondAttribute="bottom" constant="0.5" id="2EE-lH-jsS"/>
+                                        <constraint firstItem="pKs-9F-oSA" firstAttribute="leading" secondItem="7HW-gT-JLL" secondAttribute="leadingMargin" constant="25" id="3f8-1G-s9L"/>
+                                        <constraint firstItem="WHz-3s-2J5" firstAttribute="leading" secondItem="pKs-9F-oSA" secondAttribute="trailing" constant="74" id="D1p-pH-sml"/>
+                                        <constraint firstItem="pKs-9F-oSA" firstAttribute="top" secondItem="7HW-gT-JLL" secondAttribute="topMargin" constant="-1" id="IaR-zL-BHQ"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="WHz-3s-2J5" secondAttribute="trailing" constant="26" id="PPo-YP-OSa"/>
+                                        <constraint firstItem="WHz-3s-2J5" firstAttribute="top" secondItem="7HW-gT-JLL" secondAttribute="top" id="T4d-Tp-PZy"/>
+                                        <constraint firstItem="WHz-3s-2J5" firstAttribute="centerY" secondItem="7HW-gT-JLL" secondAttribute="centerY" id="lJZ-ij-3om"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="subCellIm" destination="pKs-9F-oSA" id="bZB-pv-1WY"/>
@@ -170,7 +184,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MGR-3p-WZr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="124" y="238"/>
+            <point key="canvasLocation" x="123.4375" y="237.89062499999997"/>
         </scene>
         <!--AR-->
         <scene sceneID="1mo-dQ-ZzL">
