@@ -126,8 +126,8 @@ class AvailableViewController:UIViewController, UICollectionViewDataSource, UICo
         let curLoadArtist = availableArtists[indexPath.item]
         let curArtist = curLoadArtist.artist
         if !artistInSubscribed(checkArtist: curArtist){
-            try! subscriptions.subscribeToArtist(username: curArtist.username) // TODO handle catchs
             subscribedArtists.append(curLoadArtist)
+            try! subscriptions.subscribeToArtist(username: curArtist.username) // TODO handle catchs
             print(subscriptions.subscriptions())
         }
     }
