@@ -58,7 +58,7 @@ class AvailableViewController:UIViewController, UICollectionViewDataSource, UICo
             for curArtist in returnedArtists{
                 if !artistInAvailable(checkArtist: curArtist){
                     myClient.fetchTag(username: curArtist.username, completion: {(imgData) in
-                        let curLoadArtist=loadedArtist(artist: curArtist, artistImage:UIImage(data: imgData)!)
+                        let curLoadArtist=loadedArtist(curArtist, UIImage(data: imgData)!)
                         if !artistInAvailable(checkArtist: curArtist){ availableArtists.append(curLoadArtist)}
                         self.availableCollectionView.reloadData()
                     })
@@ -75,7 +75,7 @@ class AvailableViewController:UIViewController, UICollectionViewDataSource, UICo
             for curArtist in returnedArtists{
                 if !artistInAvailable(checkArtist: curArtist){
                     myClient.fetchTag(username: curArtist.username, completion: {(imgData) in
-                        let curLoadArtist=loadedArtist(artist: curArtist, artistImage:UIImage(data: imgData)!)
+                        let curLoadArtist=loadedArtist(curArtist, UIImage(data: imgData)!)
                         if !artistInAvailable(checkArtist: curArtist){ availableArtists.append(curLoadArtist)}
                         self.availableCollectionView.reloadData()
                     })
@@ -119,6 +119,7 @@ class AvailableViewController:UIViewController, UICollectionViewDataSource, UICo
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as! AvailableCollectionCell
+        if cell.cellCheck.isHidden{//Just in case other ops are too slow
         cell.cellCheck.isHidden = false
         cell.cellLab.isHidden = false
 
@@ -129,7 +130,7 @@ class AvailableViewController:UIViewController, UICollectionViewDataSource, UICo
             subscribedArtists.append(curLoadArtist)
             try! subscriptions.subscribeToArtist(username: curArtist.username) // TODO handle catchs
             print(subscriptions.subscriptions())
-        }
+            }}
     }
 
     /*
