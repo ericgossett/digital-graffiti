@@ -62,8 +62,14 @@ class ARViewController: UIViewController, ARSCNViewDelegate {
                                 self.identifiedObject.text = "No results?"
                                 return
                             }
-                            if self.checkTargetList(str: result.identifier){
-                                self.addaModel()
+                            
+                            //print(subscribedArtists.count)
+                            if(subscribedArtists.count > 0){
+                                for i in 0...subscribedArtists.count - 1{
+                                    if(subscribedArtists[i].artist.username == result.identifier){
+                                        self.loadCustomModel(username: subscribedArtists[i].artist.username)
+                                    }
+                                }
                             }
                             self.identifiedObject.text = result.identifier
                             // Create a transform with a translation of 0.2 meters in front of the camera
@@ -84,27 +90,29 @@ class ARViewController: UIViewController, ARSCNViewDelegate {
         }
     }
     
-    func checkTargetList(str: String) -> Bool{
-        for string in targetList{
-            if(string == str){
-                return true
-            }
-        }
-        return false
-    }
-    
-    func addaModel(){
+    func loadCustomModel(username: String){
         guard let pointOfView = sceneView.pointOfView else {return}
         let transform = pointOfView.transform
         let orientation = SCNVector3(-transform.m31,-transform.m32,-transform.m33)
         let location = SCNVector3(transform.m41,transform.m42,transform.m43)
         let currentPositionOfCamera = orientation + location
-        let targetPosition = SCNVector3(currentPositionOfCamera.x,currentPositionOfCamera.y,currentPositionOfCamera.z - 0.3)
+        let targetPosition = SCNVector3(currentPositionOfCamera.x,currentPositionOfCamera.y,currentPositionOfCamera.z - 0.1)
         
-        let sphereNode = SCNNode(geometry: SCNSphere(radius: 0.02))
-        sphereNode.position = targetPosition
-        self.sceneView.scene.rootNode.addChildNode(sphereNode)
-        sphereNode.geometry?.firstMaterial?.diffuse.contents = UIColor.cyan
+//        let sphereNode = SCNNode(geometry: SCNSphere(radius: 0.02))
+//        sphereNode.position = targetPosition
+//        self.sceneView.scene.rootNode.addChildNode(sphereNode)
+//        sphereNode.geometry?.firstMaterial?.diffuse.contents = UIColor.cyan
+        
+        
+        let modelManager = ModelManager()
+        modelManager.saveAssets(username: username) {(modelFile, TextureFile) in
+            //let data = try! String(contentsOf: modelFile, encoding: .utf8)
+            //print("data: \(data) *****")
+            let node = try! modelManager.getSCNNode(username: username)
+//            node.scale = SCNVector3(0.01,0.01, 0.01)
+            node.position = targetPosition
+            self.sceneView.scene.rootNode.addChildNode(node)
+        }
     }
 }
 
