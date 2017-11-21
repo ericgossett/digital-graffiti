@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class AvailableCollectionCell:UICollectionViewCell{
+class AvailableCollectionCell: UICollectionViewCell {
     @IBOutlet weak var cellIm: UIImageView!
     @IBOutlet weak var cellLab: UILabel!
     @IBOutlet weak var cellCheck: UIImageView!
