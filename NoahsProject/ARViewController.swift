@@ -103,7 +103,6 @@ class ARViewController: UIViewController, ARSCNViewDelegate {
 //        self.sceneView.scene.rootNode.addChildNode(sphereNode)
 //        sphereNode.geometry?.firstMaterial?.diffuse.contents = UIColor.cyan
         
-        
         let modelManager = ModelManager()
         modelManager.saveAssets(username: username) {(modelFile, TextureFile) in
             //let data = try! String(contentsOf: modelFile, encoding: .utf8)
