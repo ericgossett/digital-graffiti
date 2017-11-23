@@ -35,11 +35,10 @@ class SubViewController: UITableViewController{
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let curRow = indexPath.row
-            subscribedArtists.remove(at: curRow)
             try! subscriptions.unsubscribeToArtist(
                 username: subscribedArtists[curRow].artist.username
             ) // TODO handle catch
-            
+            subscribedArtists.remove(at: curRow)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
