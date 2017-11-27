@@ -8,7 +8,13 @@ class loadedArtist: NSObject, NSCoding {
         self.artistImage=inputImage
     }
     func encode(with aCoder: NSCoder) {
-        aCoder.encode(self.artist, forKey: "artist")
+        aCoder.encode(self.artist.username, forKey: "artistUsername")
+        aCoder.encode(self.artist.tag.name, forKey:"artistTagName")
+        aCoder.encode(self.artist.tag.url, forKey:"artistTagURL")
+        aCoder.encode(self.artist.model.name, forKey:"artistModelName")
+        aCoder.encode(self.artist.model.url, forKey:"artistModelURL")
+        aCoder.encode(self.artist.texture.name, forKey:"artistTextureName")
+        aCoder.encode(self.artist.texture.url, forKey:"artistTextureURL")
         //Convert artist image to string
         let artistImageData=UIImagePNGRepresentation(self.artistImage)
         let strBase64 = artistImageData!.base64EncodedString(options: .lineLength64Characters)
@@ -17,8 +23,19 @@ class loadedArtist: NSObject, NSCoding {
     }
     
     required convenience init?(coder aDecoder: NSCoder) {
-        let curArtist = aDecoder.decodeObject(forKey: "artist") as! Artist
+        //let curArtist = aDecoder.decodeObject(forKey: "artist") as! Artist
+        let curArtistUserName = aDecoder.decodeObject(forKey: "artistUsername") as! String
+        let curArtistTagName = aDecoder.decodeObject( forKey:"artistTagName") as! String
+        let curArtistTagURL = aDecoder.decodeObject( forKey:"artistTagURL") as! URL
+        let curArtistModelName = aDecoder.decodeObject( forKey:"artistModelName") as! String
+        let curArtistModelURL = aDecoder.decodeObject( forKey:"artistModelURL") as! URL
+        let curArtistTextureName = aDecoder.decodeObject( forKey:"artistTextureName") as! String
+        let curArtistTextureURL = aDecoder.decodeObject( forKey:"artistTextureURL") as! URL
         let artistImageStr = aDecoder.decodeObject(forKey: "artistImage") as! String
+        let tagObject = Artist.FileObject(name: curArtistTagName, url: curArtistTagURL)
+        let modelObject = Artist.FileObject(name: curArtistModelName, url: curArtistModelURL)
+        let textureObject = Artist.FileObject(name: curArtistTextureName, url: curArtistTextureURL)
+        let curArtist = Artist(username: curArtistUserName, tag: tagObject, model: modelObject, texture: textureObject)
         let dataDecoded:NSData = NSData(base64Encoded: artistImageStr, options: NSData.Base64DecodingOptions(rawValue: 0))!
         let decodedimage:UIImage = UIImage(data: dataDecoded as Data)!
         self.init(curArtist, decodedimage)
