@@ -119,18 +119,19 @@ class AvailableViewController:UIViewController, UICollectionViewDataSource, UICo
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as! AvailableCollectionCell
-        if cell.cellCheck.isHidden{//Just in case other ops are too slow
+        //if cell.cellCheck.isHidden{//Just in case other ops are too slow
         cell.cellCheck.isHidden = false
-        cell.cellLab.isHidden = false
-
         
         let curLoadArtist = availableArtists[indexPath.item]
         let curArtist = curLoadArtist.artist
         if !artistInSubscribed(checkArtist: curArtist){
             subscribedArtists.append(curLoadArtist)
-            try! subscriptions.subscribeToArtist(username: curArtist.username) // TODO handle catchs
+            
+            do{try subscriptions.subscribeToArtist(username: curArtist.username) }
+            catch{
+            }// TODO handle catchs
             print(subscriptions.subscriptions())
-            }}
+            }
     }
 
     /*
