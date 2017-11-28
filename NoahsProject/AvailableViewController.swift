@@ -12,10 +12,16 @@ import UIKit
 class AvailableViewController:UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout{
     @IBOutlet weak var availableCollectionView: UICollectionView!
     var firstLoad=true
+    var loadMe=true
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("here")
-        print("now here")
+        let fileManager = FileManager.default
+        if self.loadMe{if fileManager.fileExists(atPath: ArchiveURLSubbed.path) {
+                loadSubscribed()
+                self.loadMe=false
+        } else {
+            print("FILE NOT AVAILABLE")
+            }}
         availableCollectionView.delegate = self
         availableCollectionView.dataSource = self
         availableCollectionView.frame=self.view!.frame
@@ -126,7 +132,7 @@ class AvailableViewController:UIViewController, UICollectionViewDataSource, UICo
         let curArtist = curLoadArtist.artist
         if !artistInSubscribed(checkArtist: curArtist){
             subscribedArtists.append(curLoadArtist)
-            
+            saveSubscribed()
             do{try subscriptions.subscribeToArtist(username: curArtist.username) }
             catch{
             }// TODO handle catchs

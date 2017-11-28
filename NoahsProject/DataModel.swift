@@ -16,9 +16,9 @@ class loadedArtist: NSObject, NSCoding {
         aCoder.encode(self.artist.texture.name, forKey:"artistTextureName")
         aCoder.encode(self.artist.texture.url, forKey:"artistTextureURL")
         //Convert artist image to string
-        let artistImageData=UIImagePNGRepresentation(self.artistImage)
-        let strBase64 = artistImageData!.base64EncodedString(options: .lineLength64Characters)
-        aCoder.encode(strBase64, forKey:"artistImage")
+        let imageData = UIImageJPEGRepresentation(self.artistImage, 0.9)!
+        let base64String = imageData.base64EncodedString(options: NSData.Base64EncodingOptions.lineLength64Characters)
+        aCoder.encode(base64String, forKey:"artistImage")
         print("encoded artist")
     }
     
@@ -36,7 +36,7 @@ class loadedArtist: NSObject, NSCoding {
         let modelObject = Artist.FileObject(name: curArtistModelName, url: curArtistModelURL)
         let textureObject = Artist.FileObject(name: curArtistTextureName, url: curArtistTextureURL)
         let curArtist = Artist(username: curArtistUserName, tag: tagObject, model: modelObject, texture: textureObject)
-        let dataDecoded:NSData = NSData(base64Encoded: artistImageStr, options: NSData.Base64DecodingOptions(rawValue: 0))!
+        let dataDecoded:NSData = NSData(base64Encoded: artistImageStr, options: .ignoreUnknownCharacters)!
         let decodedimage:UIImage = UIImage(data: dataDecoded as Data)!
         self.init(curArtist, decodedimage)
         print("decoded Artist")
@@ -89,5 +89,22 @@ func artistInSubscribed(checkArtist: Artist)->Bool{
 //        }
 //    }
     return false
+}
+let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
+let ArchiveURLAvaiable = DocumentsDirectory.appendingPathComponent("availableDatabase")
+let ArchiveURLSubbed = DocumentsDirectory.appendingPathComponent("subbedDatabase")
+
+func saveSubscribed() {
+    let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(subscribedArtists, toFile: ArchiveURLSubbed.path)
+    if isSuccessfulSave{
+        print("sub save succeeded")
+    }else{
+        print("sub save failed")
+    }
+}
+
+func loadSubscribed(){
+    subscribedArtists=(NSKeyedUnarchiver.unarchiveObject(withFile: ArchiveURLSubbed.path) as? [loadedArtist])!
+    print("loaded subcribed")
 }
 

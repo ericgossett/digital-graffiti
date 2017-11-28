@@ -41,6 +41,7 @@ class SubViewController: UITableViewController{
                 print("cannot unsub")
         }
             subscribedArtists.remove(at: curRow)
+            saveSubscribed()
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
