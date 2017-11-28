@@ -54,10 +54,6 @@ class ARViewController: UIViewController, ARSCNViewDelegate {
                         // Jump onto the main thread
                         DispatchQueue.main.async {
                             // Access the first result in the array after casting the array as a VNClassificationObservation array
-//                            guard let results = request.results as? [VNClassificationObservation], let result = results.first else {
-//                                self.identifiedObject.text = "No results?"
-//                                return
-//                            }
                             guard let results = request.results as? [VNClassificationObservation], let result = results.first else {
                                 self.identifiedObject.text = "No results?"
                                 return
@@ -66,20 +62,20 @@ class ARViewController: UIViewController, ARSCNViewDelegate {
                             //print(subscribedArtists.count)
                             if(subscribedArtists.count > 0){
                                 for i in 0...subscribedArtists.count - 1{
-                                    if(subscribedArtists[i].artist.username == result.identifier){
-                                        self.loadCustomModel(username: subscribedArtists[i].artist.username)
+                                    for j in 0..<10{ // top 10 classes
+                                        if(subscribedArtists[i].artist.username == results[j].identifier){
+                                            self.loadCustomModel(username: subscribedArtists[i].artist.username)
+                                        }
                                     }
                                 }
                             }
+                            
                             self.identifiedObject.text = result.identifier
-                            // Create a transform with a translation of 0.2 meters in front of the camera
                             var translation = matrix_identity_float4x4
                             translation.columns.3.z = -0.3
                             let transform = simd_mul(currentFrame.camera.transform, translation)
                             // Add a new anchor to the session
                             let anchor = ARAnchor(transform: transform)
-                            // Set the identifier
-                            //ARBridge.shared.anchorsToIdentifiers[anchor] = result.identifier
                             self.sceneView.session.add(anchor: anchor)
                         }
                     })
@@ -97,18 +93,11 @@ class ARViewController: UIViewController, ARSCNViewDelegate {
         let location = SCNVector3(transform.m41,transform.m42,transform.m43)
         let currentPositionOfCamera = orientation + location
         let targetPosition = SCNVector3(currentPositionOfCamera.x,currentPositionOfCamera.y,currentPositionOfCamera.z - 0.1)
-        
-//        let sphereNode = SCNNode(geometry: SCNSphere(radius: 0.02))
-//        sphereNode.position = targetPosition
-//        self.sceneView.scene.rootNode.addChildNode(sphereNode)
-//        sphereNode.geometry?.firstMaterial?.diffuse.contents = UIColor.cyan
-        
+
         let modelManager = ModelManager()
         modelManager.saveAssets(username: username) {(modelFile, TextureFile) in
-            //let data = try! String(contentsOf: modelFile, encoding: .utf8)
-            //print("data: \(data) *****")
+
             let node = try! modelManager.getSCNNode(username: username)
-//            node.scale = SCNVector3(0.01,0.01, 0.01)
             node.position = targetPosition
             self.sceneView.scene.rootNode.addChildNode(node)
         }
