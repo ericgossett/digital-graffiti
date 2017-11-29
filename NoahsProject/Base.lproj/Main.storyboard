@@ -156,12 +156,12 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f00-Jh-Pki">
-                                <rect key="frame" x="284" y="935" width="200" height="20"/>
+                                <rect key="frame" x="184" y="935" width="400" height="20"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="IDp-eD-XzH"/>
-                                    <constraint firstAttribute="width" secondItem="f00-Jh-Pki" secondAttribute="height" multiplier="10:1" id="urG-WX-g8j"/>
+                                    <constraint firstAttribute="width" secondItem="f00-Jh-Pki" secondAttribute="height" multiplier="20:1" id="b4X-Eu-hY7"/>
+                                    <constraint firstAttribute="height" constant="20" id="feL-N4-BpS"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <color key="textColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -188,17 +188,17 @@
                             <constraint firstItem="5Ob-65-eIS" firstAttribute="leading" secondItem="QHw-fD-HdX" secondAttribute="leading" id="1cg-Gb-Ndu"/>
                             <constraint firstItem="6ZQ-S0-kxn" firstAttribute="centerX" secondItem="Wdt-eI-HBx" secondAttribute="centerX" id="3bC-DL-Oj2"/>
                             <constraint firstItem="5Ob-65-eIS" firstAttribute="trailing" secondItem="QHw-fD-HdX" secondAttribute="trailing" id="7No-zq-TQi"/>
-                            <constraint firstItem="QHw-fD-HdX" firstAttribute="bottom" secondItem="f00-Jh-Pki" secondAttribute="bottom" constant="20" id="A1G-tj-JSa"/>
                             <constraint firstItem="5Ob-65-eIS" firstAttribute="top" secondItem="Wdt-eI-HBx" secondAttribute="top" id="CrN-Z8-cZl"/>
                             <constraint firstItem="5Ob-65-eIS" firstAttribute="top" secondItem="Wdt-eI-HBx" secondAttribute="top" id="F28-vV-oI2"/>
+                            <constraint firstItem="f00-Jh-Pki" firstAttribute="centerX" secondItem="Wdt-eI-HBx" secondAttribute="centerX" id="GiF-lf-2Oi"/>
                             <constraint firstItem="5Ob-65-eIS" firstAttribute="bottom" secondItem="QHw-fD-HdX" secondAttribute="bottom" id="N1P-sU-12i"/>
-                            <constraint firstItem="f00-Jh-Pki" firstAttribute="centerX" secondItem="Wdt-eI-HBx" secondAttribute="centerX" id="PoG-8U-rFY"/>
                             <constraint firstItem="5Ob-65-eIS" firstAttribute="bottom" secondItem="QHw-fD-HdX" secondAttribute="bottom" id="TiZ-hQ-qj8"/>
                             <constraint firstItem="5Ob-65-eIS" firstAttribute="trailing" secondItem="QHw-fD-HdX" secondAttribute="trailing" id="Yks-NJ-hOM"/>
                             <constraint firstItem="5Ob-65-eIS" firstAttribute="leading" secondItem="QHw-fD-HdX" secondAttribute="leading" id="c4k-yz-N9Z"/>
                             <constraint firstItem="5Ob-65-eIS" firstAttribute="top" secondItem="Wdt-eI-HBx" secondAttribute="top" id="enV-SA-2AV"/>
                             <constraint firstItem="5Ob-65-eIS" firstAttribute="leading" secondItem="QHw-fD-HdX" secondAttribute="leading" id="gbQ-cd-ZQf"/>
                             <constraint firstItem="5Ob-65-eIS" firstAttribute="bottom" secondItem="QHw-fD-HdX" secondAttribute="bottom" id="mOD-0o-aIb"/>
+                            <constraint firstItem="QHw-fD-HdX" firstAttribute="bottom" secondItem="f00-Jh-Pki" secondAttribute="bottom" constant="20" id="peL-bx-JmO"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="QHw-fD-HdX"/>
                     </view>
