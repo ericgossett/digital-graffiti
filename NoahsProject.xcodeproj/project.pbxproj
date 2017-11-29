@@ -38,7 +38,6 @@
 		7F1106591FBE273100AFBF25 /* ARViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewController.swift; sourceTree = "<group>"; };
 		7F522B031FB949CE0071EABE /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		7F53212F1FBF8C1C0033E74B /* Inceptionv3.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Inceptionv3.mlmodel; sourceTree = "<group>"; };
-		7FDA6E341FCE475500DB7B8B /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		8080DE2B1FB0BF89008142E1 /* ModelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelManager.swift; sourceTree = "<group>"; };
 		8080DE2D1FB0EC13008142E1 /* SubscriptionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionManager.swift; sourceTree = "<group>"; };
 		809BC02D1FC33CE800ECD021 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fonts; sourceTree = "<group>"; };
@@ -106,7 +105,6 @@
 				54B56C4A1FB24D890053F655 /* AvailableCollectionCell.swift */,
 				54B56C4E1FB35B440053F655 /* SubTableViewCell.swift */,
 				7F522B031FB949CE0071EABE /* RoundButton.swift */,
-				7FDA6E341FCE475500DB7B8B /* README.md */,
 			);
 			path = NoahsProject;
 			sourceTree = "<group>";

@@ -165,20 +165,39 @@
                                 <color key="textColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sO4-T6-xaM" customClass="RoundButton" customModule="NoahsProject" customModuleProvider="target">
+                                <rect key="frame" x="662" y="874" width="80" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Clear"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="60"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="clear:" destination="IlZ-3U-Kh7" eventType="touchUpInside" id="2Ln-d8-TxC"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="5Ob-65-eIS" firstAttribute="trailing" secondItem="QHw-fD-HdX" secondAttribute="trailing" id="0tk-Jt-Q96"/>
                             <constraint firstAttribute="bottomMargin" secondItem="6ZQ-S0-kxn" secondAttribute="bottom" constant="60" id="1F7-Uo-tix"/>
                             <constraint firstItem="5Ob-65-eIS" firstAttribute="leading" secondItem="QHw-fD-HdX" secondAttribute="leading" id="1cg-Gb-Ndu"/>
                             <constraint firstItem="6ZQ-S0-kxn" firstAttribute="centerX" secondItem="Wdt-eI-HBx" secondAttribute="centerX" id="3bC-DL-Oj2"/>
                             <constraint firstItem="5Ob-65-eIS" firstAttribute="trailing" secondItem="QHw-fD-HdX" secondAttribute="trailing" id="7No-zq-TQi"/>
                             <constraint firstItem="QHw-fD-HdX" firstAttribute="bottom" secondItem="f00-Jh-Pki" secondAttribute="bottom" constant="20" id="A1G-tj-JSa"/>
+                            <constraint firstItem="5Ob-65-eIS" firstAttribute="top" secondItem="Wdt-eI-HBx" secondAttribute="top" id="CrN-Z8-cZl"/>
                             <constraint firstItem="5Ob-65-eIS" firstAttribute="top" secondItem="Wdt-eI-HBx" secondAttribute="top" id="F28-vV-oI2"/>
+                            <constraint firstItem="5Ob-65-eIS" firstAttribute="bottom" secondItem="QHw-fD-HdX" secondAttribute="bottom" id="N1P-sU-12i"/>
                             <constraint firstItem="f00-Jh-Pki" firstAttribute="centerX" secondItem="Wdt-eI-HBx" secondAttribute="centerX" id="PoG-8U-rFY"/>
                             <constraint firstItem="5Ob-65-eIS" firstAttribute="bottom" secondItem="QHw-fD-HdX" secondAttribute="bottom" id="TiZ-hQ-qj8"/>
                             <constraint firstItem="5Ob-65-eIS" firstAttribute="trailing" secondItem="QHw-fD-HdX" secondAttribute="trailing" id="Yks-NJ-hOM"/>
                             <constraint firstItem="5Ob-65-eIS" firstAttribute="leading" secondItem="QHw-fD-HdX" secondAttribute="leading" id="c4k-yz-N9Z"/>
                             <constraint firstItem="5Ob-65-eIS" firstAttribute="top" secondItem="Wdt-eI-HBx" secondAttribute="top" id="enV-SA-2AV"/>
+                            <constraint firstItem="5Ob-65-eIS" firstAttribute="leading" secondItem="QHw-fD-HdX" secondAttribute="leading" id="gbQ-cd-ZQf"/>
                             <constraint firstItem="5Ob-65-eIS" firstAttribute="bottom" secondItem="QHw-fD-HdX" secondAttribute="bottom" id="mOD-0o-aIb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="QHw-fD-HdX"/>

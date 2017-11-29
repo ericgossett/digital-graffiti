@@ -99,6 +99,18 @@ class ARViewController: UIViewController, ARSCNViewDelegate {
             self.sceneView.scene.rootNode.addChildNode(node)
         }
     }
+    
+    @IBAction func clear(_ sender: Any) {
+        restartSession()
+    }
+    
+    func restartSession(){
+        self.sceneView.session.pause()
+        self.sceneView.scene.rootNode.enumerateChildNodes { (node, _) in
+            node.removeFromParentNode()
+        }
+        self.sceneView.session.run(configuration, options: [.resetTracking, .removeExistingAnchors])
+    }
 }
 
 func +(left: SCNVector3, right: SCNVector3) -> SCNVector3 {
