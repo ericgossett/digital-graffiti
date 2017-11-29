@@ -10,9 +10,6 @@ import UIKit
 import ARKit
 import Vision
 
-// hard coded data for testing
-let targetList = ["tabby cat", "iPod", "dog"]
-
 class ARViewController: UIViewController, ARSCNViewDelegate {
 
     @IBOutlet weak var identifiedObject: UILabel!
@@ -59,12 +56,12 @@ class ARViewController: UIViewController, ARSCNViewDelegate {
                                 return
                             }
                             
-                            //print(subscribedArtists.count)
                             if(subscribedArtists.count > 0){
                                 for i in 0...subscribedArtists.count - 1{
                                     for j in 0..<10{ // top 10 classes
                                         if(subscribedArtists[i].artist.username == results[j].identifier){
                                             self.loadCustomModel(username: subscribedArtists[i].artist.username)
+                                            break
                                         }
                                     }
                                 }

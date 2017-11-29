@@ -13,9 +13,7 @@
 		54B56C4F1FB35B440053F655 /* SubTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B56C4E1FB35B440053F655 /* SubTableViewCell.swift */; };
 		54B56C511FB364420053F655 /* SubViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B56C501FB364420053F655 /* SubViewController.swift */; };
 		7F11065A1FBE273100AFBF25 /* ARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1106591FBE273100AFBF25 /* ARViewController.swift */; };
-		7F4BD6331FC77B9100C6C5F5 /* Acknowledgement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4BD6321FC77B9100C6C5F5 /* Acknowledgement.swift */; };
 		7F522B041FB949CE0071EABE /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F522B031FB949CE0071EABE /* RoundButton.swift */; };
-		7F522B061FB94BEF0071EABE /* ARViewControllerOld.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F522B051FB94BEF0071EABE /* ARViewControllerOld.swift */; };
 		7F5321301FBF8C1C0033E74B /* Inceptionv3.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 7F53212F1FBF8C1C0033E74B /* Inceptionv3.mlmodel */; };
 		8080DE2C1FB0BF89008142E1 /* ModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8080DE2B1FB0BF89008142E1 /* ModelManager.swift */; };
 		8080DE2E1FB0EC13008142E1 /* SubscriptionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8080DE2D1FB0EC13008142E1 /* SubscriptionManager.swift */; };
@@ -38,10 +36,9 @@
 		54B56C4E1FB35B440053F655 /* SubTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubTableViewCell.swift; sourceTree = "<group>"; };
 		54B56C501FB364420053F655 /* SubViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubViewController.swift; sourceTree = "<group>"; };
 		7F1106591FBE273100AFBF25 /* ARViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewController.swift; sourceTree = "<group>"; };
-		7F4BD6321FC77B9100C6C5F5 /* Acknowledgement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Acknowledgement.swift; sourceTree = "<group>"; };
 		7F522B031FB949CE0071EABE /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
-		7F522B051FB94BEF0071EABE /* ARViewControllerOld.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewControllerOld.swift; sourceTree = "<group>"; };
 		7F53212F1FBF8C1C0033E74B /* Inceptionv3.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Inceptionv3.mlmodel; sourceTree = "<group>"; };
+		7FDA6E341FCE475500DB7B8B /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		8080DE2B1FB0BF89008142E1 /* ModelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelManager.swift; sourceTree = "<group>"; };
 		8080DE2D1FB0EC13008142E1 /* SubscriptionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionManager.swift; sourceTree = "<group>"; };
 		809BC02D1FC33CE800ECD021 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fonts; sourceTree = "<group>"; };
@@ -95,7 +92,6 @@
 				80C802E01FACF6BC0031B883 /* art.scnassets */,
 				80C802E21FACF6BC0031B883 /* ViewController.swift */,
 				7F1106591FBE273100AFBF25 /* ARViewController.swift */,
-				7F4BD6321FC77B9100C6C5F5 /* Acknowledgement.swift */,
 				7F53212F1FBF8C1C0033E74B /* Inceptionv3.mlmodel */,
 				80C802E41FACF6BC0031B883 /* Main.storyboard */,
 				80C802F21FACF8870031B883 /* APIClient.swift */,
@@ -110,7 +106,7 @@
 				54B56C4A1FB24D890053F655 /* AvailableCollectionCell.swift */,
 				54B56C4E1FB35B440053F655 /* SubTableViewCell.swift */,
 				7F522B031FB949CE0071EABE /* RoundButton.swift */,
-				7F522B051FB94BEF0071EABE /* ARViewControllerOld.swift */,
+				7FDA6E341FCE475500DB7B8B /* README.md */,
 			);
 			path = NoahsProject;
 			sourceTree = "<group>";
@@ -198,11 +194,9 @@
 				54B56C4B1FB24D890053F655 /* AvailableCollectionCell.swift in Sources */,
 				80C802DF1FACF6BC0031B883 /* AppDelegate.swift in Sources */,
 				7F11065A1FBE273100AFBF25 /* ARViewController.swift in Sources */,
-				7F4BD6331FC77B9100C6C5F5 /* Acknowledgement.swift in Sources */,
 				8080DE2E1FB0EC13008142E1 /* SubscriptionManager.swift in Sources */,
 				80C802F31FACF8870031B883 /* APIClient.swift in Sources */,
 				7F5321301FBF8C1C0033E74B /* Inceptionv3.mlmodel in Sources */,
-				7F522B061FB94BEF0071EABE /* ARViewControllerOld.swift in Sources */,
 				80C802F71FACF9180031B883 /* APITestViewController.swift in Sources */,
 				8080DE2C1FB0BF89008142E1 /* ModelManager.swift in Sources */,
 				54B56C411FB0FAD20053F655 /* DataModel.swift in Sources */,
