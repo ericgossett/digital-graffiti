@@ -11,7 +11,8 @@ import UIKit
 
 let DEV_MODE = false
 
-
+/*** Structure used to decode JSON response in fetchUserList.
+*/
 struct Artist: Codable {
     let username: String
     
@@ -36,6 +37,8 @@ class APIClient {
         print("host: \(apiURL.host!)")
     }
     
+    /*** Test if a connection can be made to the server.
+    */
     func testConnection(completion: ((Bool) -> Void)?) {
         let session = URLSession.shared
         guard let url = apiURL.url else {
@@ -56,7 +59,6 @@ class APIClient {
         }
         task.resume()
     }
-    
     
     
     /*** Fetches a list of Artist objects from the pieces API endpoint.
@@ -116,7 +118,7 @@ class APIClient {
         task.resume()
     }
     
-    /*** Facade for fetching tags.
+    /*** Facade for fetching tags. Leverges fetchFile.
     */
     func fetchTag(username: String, completion: ((Data) -> Void)?) {
         self.fetchFile(file:"\(username)_tag.jpg") { (data) in
@@ -124,7 +126,7 @@ class APIClient {
         }
     }
     
-    /*** Facade for fetching 3D Model.
+    /*** Facade for fetching 3D Model. Leverges fetchFile.
     */
     func fetchModel(username: String, completion: ((Data) -> Void)?) {
         self.fetchFile(file:"\(username)_model.obj") { (data) in
