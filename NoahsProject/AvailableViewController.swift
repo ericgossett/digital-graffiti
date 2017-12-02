@@ -102,6 +102,7 @@ class AvailableViewController:UIViewController, UICollectionViewDataSource, UICo
         cell.cellLab.text=curArtist.artist.username
         print(curArtist.artist.username)
         cell.cellIm.image=curArtist.artistImage
+        cell.cellIm.contentMode = .scaleAspectFit
         let isSubbed = artistInSubscribed(checkArtist: curArtist.artist)
         cell.cellCheck.isHidden = !isSubbed
         

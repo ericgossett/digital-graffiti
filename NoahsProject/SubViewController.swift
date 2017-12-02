@@ -23,7 +23,7 @@ class SubViewController: UITableViewController{
         let cell = tableView.dequeueReusableCell(withIdentifier: "subTableCell") as! SubTableViewCell
         cell.subCellLab.text=subscribedArtists[indexPath.row].artist.username
         cell.subCellIm.image=subscribedArtists[indexPath.row].artistImage
-        
+        cell.subCellIm.contentMode = .scaleAspectFit
         // Make divider line full width
         cell.preservesSuperviewLayoutMargins = false
         cell.separatorInset = UIEdgeInsets.zero
