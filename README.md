@@ -48,10 +48,10 @@ The view layer consists of 3 views:
 - [X-wing](https://github.com/iosdevzone/GettingStartedWithModelIO/tree/master/ModelIOApp/ModelIOApp)
 
 
-### Icons
+## Icons
 
 - Tab bar icons taken from Icons8 : [paint roller](https://icons8.com/icon/2021/paint-roller), [collage](https://icons8.com/icon/19297/collage) and [camera](https://icons8.com/icon/5376/camera)
 
-### Other
+## Other
 
 - Special thanks to the iOS Developer Zone for their tutorial on how to use ModelIO. ([link](http://iosdeveloperzone.com/2016/05/10/getting-started-with-modelio/))
