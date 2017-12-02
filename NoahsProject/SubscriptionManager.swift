@@ -8,12 +8,17 @@
 
 import Foundation
 
+/*** SubscriptionManger Errors
+*/
 enum SubscriptionManagerError: Error {
     case userNotFound
     case alreadySubscribed
 }
 
 
+/*** Class used to encode subscribed pieces (username + tag + 3D assets)
+ and save to disk.
+*/
 class Piece: NSObject, NSCoding {
     struct EncodeKeys {
         static let username = "username"
@@ -50,6 +55,10 @@ class Piece: NSObject, NSCoding {
     
 }
 
+/*** Subscription Manager handles fetching 3D assets and storing them on disk
+ when a user chooses to subscribe to an artist. Keeps an Internal store of
+ all saved pieces and provides functionality to subscribe/unsubscribe.
+*/
 class SubscriptionManager {
 
     private var _pieces = [Piece]()
@@ -76,6 +85,9 @@ class SubscriptionManager {
         }
     }
     
+    /*** Given the username, subscribes to the artist after fetching
+     all assets from the server and saving them to disk.
+    */
     func subscribeToArtist(username: String) throws {
         
         let isSubscribed = _pieces.contains(){ piece in
@@ -110,6 +122,9 @@ class SubscriptionManager {
         }
     }
 
+    /*** Given the username, unsubscribes to the artist after removing
+     all saved assets from disk.
+     */
     func unsubscribeToArtist(username: String) throws {
         let isSubscribed = _pieces.contains(){ piece in
             if piece.username == username {
@@ -135,14 +150,20 @@ class SubscriptionManager {
         }
     }
     
+    /*** Returns a list of all the artists pieces a user is subscribed to.
+    */
     func subscriptions() -> [Piece] {
         return self._pieces
     }
     
+    /*** Saves the list of subscribed pieces to disk.
+    */
     static func saveToDisk(_ data: [Piece]) -> Bool {
         return NSKeyedArchiver.archiveRootObject(data, toFile: SubscriptionManager.ArchiveURL.path)
     }
     
+    /*** Loads the list of subscribed pieces to disk.
+    */
     static func loadFromDisk() -> [Piece]? {
         return NSKeyedUnarchiver.unarchiveObject(withFile: SubscriptionManager.ArchiveURL.path) as? [Piece]
     }

@@ -11,7 +11,8 @@ import ModelIO
 import SceneKit
 import SceneKit.ModelIO
 
-
+/*** Errors for ModelManger
+*/
 enum ModelManagerError: Error {
     case AssetFilesNotFound
 }
@@ -21,6 +22,8 @@ class ModelManager {
     let api = APIClient()
     var assetURL: URL
     
+    /*** On init set up a folder named Assets to store files.
+   */
     init() {
         let fileManager = FileManager.default
         let documentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
@@ -34,6 +37,10 @@ class ModelManager {
         }
     }
     
+    /*** Fetches 3D assets from the server and stores them on disk.
+     This is used by the subscription manager and is called when a
+     user is subscribed to.
+    */
     func saveAssets(username: String, completion: ((URL, URL) -> Void)?) {
         self.api.fetchModel(username: username) { (modelData) in
             self.api.fetchTexture(username: username) { textureData in
@@ -46,6 +53,9 @@ class ModelManager {
         }
     }
     
+    /*** Loads the raw 3D assets from disk and returns the respective URL.
+     Used by getSCNNode.
+    */
     func loadAssets(username: String)  throws -> (modelFile: URL, textureFile: URL) {
         let modelFile = assetURL.appendingPathComponent("\(username)_model.obj")
         let textureFile = assetURL.appendingPathComponent("\(username)_texture.obj")
@@ -56,6 +66,9 @@ class ModelManager {
         return (modelFile: modelFile, textureFile: textureFile)
     }
     
+    /*** Deletes 3D assets from disk. Called by the subscription manager when
+     unsubscribing to a user.
+   */
     func deleteAssets(username: String) throws {
         let modelFile = assetURL.appendingPathComponent("\(username)_model.obj")
         let textureFile = assetURL.appendingPathComponent("\(username)_texture.obj")
@@ -67,6 +80,17 @@ class ModelManager {
         }
     }
     
+    
+    /*** Loads the 3D assets and creates a SCNNode which can be appended
+     to the SCNkit scence in the ARView.
+     
+     - First a MDL mesh is created from the .obj file
+     
+     - Next a MDLMaterial is created using the texture file.
+     
+     - Finally, each submesh in the MDL mesh is looped over to apply the
+     material and the SCNode is created.
+    */
     func getSCNNode(username: String) throws -> SCNNode {
         do {
             let assets = try loadAssets(username: username)
