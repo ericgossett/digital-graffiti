@@ -33,7 +33,7 @@ class AvailableViewController:UIViewController, UICollectionViewDataSource, UICo
         let width = availableCollectionView.bounds.width
         
         layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 20, right: 10)
-        layout.itemSize = CGSize(width: width / 3 - 20, height: 120)
+        layout.itemSize = CGSize(width: width / 3 - 20, height: 180)
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 20
         availableCollectionView!.collectionViewLayout = layout
