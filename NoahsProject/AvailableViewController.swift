@@ -60,36 +60,62 @@ class AvailableViewController:UIViewController, UICollectionViewDataSource, UICo
         super.viewWillAppear(animated)
         
         print("view appeared")
-        if self.firstLoad{myClient.fetchUserList { (returnedArtists) in
-            for curArtist in returnedArtists{
-                if !artistInAvailable(checkArtist: curArtist){
-                    myClient.fetchTag(username: curArtist.username, completion: {(imgData) in
-                        let curLoadArtist=loadedArtist(curArtist, UIImage(data: imgData)!)
-                        if !artistInAvailable(checkArtist: curArtist){ availableArtists.append(curLoadArtist)}
-                        self.availableCollectionView.reloadData()
-                    })
+        if self.firstLoad{
+            fetchFromServer()
+            /*
+            myClient.testConnection { connected in
+                if connected {
+                    myClient.fetchUserList { (returnedArtists) in
+                        for curArtist in returnedArtists{
+                            if !artistInAvailable(checkArtist: curArtist){
+                                myClient.fetchTag(username: curArtist.username, completion: {(imgData) in
+                                    let curLoadArtist=loadedArtist(curArtist, UIImage(data: imgData)!)
+                                    if !artistInAvailable(checkArtist: curArtist){ availableArtists.append(curLoadArtist)}
+                                    self.availableCollectionView.reloadData()
+                                })
+                            }
+                        }
+                    }
+                } else {
+                    let alertController = UIAlertController(title: "Connection Error", message: "Unable to reach server, please check your wifi. If your wifi is working email Eric at ericmgossett@gmail.com and tell him to get his server in check!", preferredStyle: .alert)
+                    let OKAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                    alertController.addAction(OKAction)
+                    self.present(alertController, animated: true, completion: nil)
                 }
             }
-            
-            }}
+             */
+        }
         self.firstLoad=false
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         availableCollectionView.reloadData()
-        myClient.fetchUserList { (returnedArtists) in
-            for curArtist in returnedArtists{
-                if !artistInAvailable(checkArtist: curArtist){
-                    myClient.fetchTag(username: curArtist.username, completion: {(imgData) in
-                        let curLoadArtist=loadedArtist(curArtist, UIImage(data: imgData)!)
-                        if !artistInAvailable(checkArtist: curArtist){ availableArtists.append(curLoadArtist)}
-                        self.availableCollectionView.reloadData()
-                    })
+        fetchFromServer()
+        /*
+        myClient.testConnection { connected in
+            if connected {
+                myClient.fetchUserList { (returnedArtists) in
+                    for curArtist in returnedArtists{
+                        if !artistInAvailable(checkArtist: curArtist){
+                            myClient.fetchTag(username: curArtist.username, completion: {(imgData) in
+                                let curLoadArtist=loadedArtist(curArtist, UIImage(data: imgData)!)
+                                if !artistInAvailable(checkArtist: curArtist){ availableArtists.append(curLoadArtist)}
+                                self.availableCollectionView.reloadData()
+                            })
+                        }
+                    }
                 }
+            } else {
+                let alertController = UIAlertController(title: "Connection Error", message: "Unable to reach server, please check your wifi. If your wifi is working email Eric at ericmgossett@gmail.com and tell him to get his server in check!", preferredStyle: .alert)
+                let OKAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alertController.addAction(OKAction)
+                self.present(alertController, animated: true, completion: nil)
             }
-            
         }
+       */
     }
+    
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         print(availableArtists.count)
         return availableArtists.count
@@ -165,3 +191,29 @@ class AvailableViewController:UIViewController, UICollectionViewDataSource, UICo
     }
 }
 
+
+extension AvailableViewController {
+    
+    func fetchFromServer() {
+        myClient.testConnection { connected in
+            if connected {
+                myClient.fetchUserList { (returnedArtists) in
+                    for curArtist in returnedArtists{
+                        if !artistInAvailable(checkArtist: curArtist){
+                            myClient.fetchTag(username: curArtist.username, completion: {(imgData) in
+                                let curLoadArtist=loadedArtist(curArtist, UIImage(data: imgData)!)
+                                if !artistInAvailable(checkArtist: curArtist){ availableArtists.append(curLoadArtist)}
+                                self.availableCollectionView.reloadData()
+                            })
+                        }
+                    }
+                }
+            } else {
+                let alertController = UIAlertController(title: "Connection Error", message: "Unable to reach server, please check your wifi. If your wifi is working email Eric at ericmgossett@gmail.com and tell him to get his server in check!", preferredStyle: .alert)
+                let OKAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alertController.addAction(OKAction)
+                self.present(alertController, animated: true, completion: nil)
+            }
+        }
+    }
+}

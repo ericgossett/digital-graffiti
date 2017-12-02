@@ -36,6 +36,29 @@ class APIClient {
         print("host: \(apiURL.host!)")
     }
     
+    func testConnection(completion: ((Bool) -> Void)?) {
+        let session = URLSession.shared
+        guard let url = apiURL.url else {
+            fatalError("throw error no url constructed")
+        }
+        let task = session.dataTask(with:url) { (loc, resp, err) in
+            guard err == nil else {
+                print("throw, error no response")
+                completion?(false)
+                return
+            }
+            let status = (resp as! HTTPURLResponse).statusCode
+            print("response status: \(status)")
+            if status != 200 {
+                completion?(false)
+            }
+            completion?(true)
+        }
+        task.resume()
+    }
+    
+    
+    
     /*** Fetches a list of Artist objects from the pieces API endpoint.
     */
     func fetchUserList(completion: (([Artist]) -> Void)?) {
@@ -51,7 +74,9 @@ class APIClient {
         let task = session.dataTask(with: req) {(data, res, error) in
             DispatchQueue.main.async {
                 guard error == nil, let jsonData = data else {
-                    fatalError("throw, error of no response")
+                    print("error: no response")
+                    completion?([])
+                    return
                 }
                 
                 let decoder = JSONDecoder()
@@ -60,7 +85,8 @@ class APIClient {
                     let artists = try decoder.decode([Artist].self, from: jsonData)
                     completion?(artists)
                 } catch {
-                    fatalError("Can't decode JSON")
+                    // fatalError("Can't decode JSON")
+                    completion?([])
                 }
             }
         }
