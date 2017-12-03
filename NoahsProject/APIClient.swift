@@ -34,7 +34,6 @@ class APIClient {
     init() {
         apiURL.scheme = "http"
         apiURL.host = (DEV_MODE) ? "127.0.0.1" : "vcm-2006.vm.duke.edu"
-        print("host: \(apiURL.host!)")
     }
     
     /*** Test if a connection can be made to the server.
@@ -46,12 +45,10 @@ class APIClient {
         }
         let task = session.dataTask(with:url) { (loc, resp, err) in
             guard err == nil else {
-                print("throw, error no response")
                 completion?(false)
                 return
             }
             let status = (resp as! HTTPURLResponse).statusCode
-            print("response status: \(status)")
             if status != 200 {
                 completion?(false)
             }
@@ -76,7 +73,6 @@ class APIClient {
         let task = session.dataTask(with: req) {(data, res, error) in
             DispatchQueue.main.async {
                 guard error == nil, let jsonData = data else {
-                    print("error: no response")
                     completion?([])
                     return
                 }

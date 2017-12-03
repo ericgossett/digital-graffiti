@@ -20,8 +20,9 @@ class AvailableViewController:UIViewController, UICollectionViewDataSource, UICo
                 loadSubscribed()
                 self.loadMe=false
         } else {
-            print("FILE NOT AVAILABLE")
-            }}
+            // print("FILE NOT AVAILABLE")
+            }
+        }
         availableCollectionView.delegate = self
         availableCollectionView.dataSource = self
         availableCollectionView.frame=self.view!.frame
@@ -59,31 +60,8 @@ class AvailableViewController:UIViewController, UICollectionViewDataSource, UICo
     override func viewDidAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        print("view appeared")
         if self.firstLoad{
             fetchFromServer()
-            /*
-            myClient.testConnection { connected in
-                if connected {
-                    myClient.fetchUserList { (returnedArtists) in
-                        for curArtist in returnedArtists{
-                            if !artistInAvailable(checkArtist: curArtist){
-                                myClient.fetchTag(username: curArtist.username, completion: {(imgData) in
-                                    let curLoadArtist=loadedArtist(curArtist, UIImage(data: imgData)!)
-                                    if !artistInAvailable(checkArtist: curArtist){ availableArtists.append(curLoadArtist)}
-                                    self.availableCollectionView.reloadData()
-                                })
-                            }
-                        }
-                    }
-                } else {
-                    let alertController = UIAlertController(title: "Connection Error", message: "Unable to reach server, please check your wifi. If your wifi is working email Eric at ericmgossett@gmail.com and tell him to get his server in check!", preferredStyle: .alert)
-                    let OKAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-                    alertController.addAction(OKAction)
-                    self.present(alertController, animated: true, completion: nil)
-                }
-            }
-             */
         }
         self.firstLoad=false
     }
@@ -91,33 +69,10 @@ class AvailableViewController:UIViewController, UICollectionViewDataSource, UICo
         super.viewWillAppear(animated)
         availableCollectionView.reloadData()
         fetchFromServer()
-        /*
-        myClient.testConnection { connected in
-            if connected {
-                myClient.fetchUserList { (returnedArtists) in
-                    for curArtist in returnedArtists{
-                        if !artistInAvailable(checkArtist: curArtist){
-                            myClient.fetchTag(username: curArtist.username, completion: {(imgData) in
-                                let curLoadArtist=loadedArtist(curArtist, UIImage(data: imgData)!)
-                                if !artistInAvailable(checkArtist: curArtist){ availableArtists.append(curLoadArtist)}
-                                self.availableCollectionView.reloadData()
-                            })
-                        }
-                    }
-                }
-            } else {
-                let alertController = UIAlertController(title: "Connection Error", message: "Unable to reach server, please check your wifi. If your wifi is working email Eric at ericmgossett@gmail.com and tell him to get his server in check!", preferredStyle: .alert)
-                let OKAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-                alertController.addAction(OKAction)
-                self.present(alertController, animated: true, completion: nil)
-            }
-        }
-       */
     }
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print(availableArtists.count)
         return availableArtists.count
     }
     
@@ -126,7 +81,6 @@ class AvailableViewController:UIViewController, UICollectionViewDataSource, UICo
         let  cell = collectionView.dequeueReusableCell(withReuseIdentifier: "availableCollectionCell", for: indexPath) as! AvailableCollectionCell
         let curArtist = availableArtists[indexPath.item]
         cell.cellLab.text=curArtist.artist.username
-        print(curArtist.artist.username)
         cell.cellIm.image=curArtist.artistImage
         cell.cellIm.contentMode = .scaleAspectFit
         let isSubbed = artistInSubscribed(checkArtist: curArtist.artist)
@@ -161,10 +115,8 @@ class AvailableViewController:UIViewController, UICollectionViewDataSource, UICo
             subscribedArtists.append(curLoadArtist)
             saveSubscribed()
             do{try subscriptions.subscribeToArtist(username: curArtist.username) }
-            catch{
-            }// TODO handle catchs
-            print(subscriptions.subscriptions())
-            }
+            catch{ } // TODO handle catchs
+        }
     }
 
     /*

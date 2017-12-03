@@ -19,7 +19,6 @@ class loadedArtist: NSObject, NSCoding {
         let imageData = UIImageJPEGRepresentation(self.artistImage, 0.9)!
         let base64String = imageData.base64EncodedString(options: NSData.Base64EncodingOptions.lineLength64Characters)
         aCoder.encode(base64String, forKey:"artistImage")
-        print("encoded artist")
     }
     
     required convenience init?(coder aDecoder: NSCoder) {
@@ -39,7 +38,6 @@ class loadedArtist: NSObject, NSCoding {
         let dataDecoded:NSData = NSData(base64Encoded: artistImageStr, options: .ignoreUnknownCharacters)!
         let decodedimage:UIImage = UIImage(data: dataDecoded as Data)!
         self.init(curArtist, decodedimage)
-        print("decoded Artist")
     }
     
     static func saveArtistListData(_ artistList: [loadedArtist], _ fileName: String) -> Bool {
@@ -47,10 +45,8 @@ class loadedArtist: NSObject, NSCoding {
         let ArchiveURL = DocumentsDirectory.appendingPathComponent(fileName)
         let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(artistList, toFile: ArchiveURL.path)
         if !isSuccessfulSave {
-            print("Failed to save info")
             return false
         } else {
-            print("Saved")
             return true
         }
     }
@@ -96,15 +92,16 @@ let ArchiveURLSubbed = DocumentsDirectory.appendingPathComponent("subbedDatabase
 
 func saveSubscribed() {
     let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(subscribedArtists, toFile: ArchiveURLSubbed.path)
+    
     if isSuccessfulSave{
-        print("sub save succeeded")
+        // print("sub save succeeded")
     }else{
-        print("sub save failed")
+        // print("sub save failed")
     }
+
 }
 
 func loadSubscribed(){
     subscribedArtists=(NSKeyedUnarchiver.unarchiveObject(withFile: ArchiveURLSubbed.path) as? [loadedArtist])!
-    print("loaded subcribed")
 }
 

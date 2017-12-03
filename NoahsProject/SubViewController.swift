@@ -38,7 +38,7 @@ class SubViewController: UITableViewController{
             do{try subscriptions.unsubscribeToArtist(
                 username: subscribedArtists[curRow].artist.username
                 )} catch{
-                print("cannot unsub")
+                // print("cannot unsub")
         }
             subscribedArtists.remove(at: curRow)
             saveSubscribed()
