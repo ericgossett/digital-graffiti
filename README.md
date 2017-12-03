@@ -20,9 +20,9 @@ The data layer handles fetching 3D assets from the web server, the storage of su
 - **SubscriptionManager** - A singleton which acts as the local store. It contains a list of all subscribed users along with methods to subscribe/unsubscribe.
 
 
-## The View Layer
+## The Presentation Layer
 
-The view layer consists of 3 views:
+The presentation layer consists of 3 views:
 
 - **AvailableView** - Displays a grid of cards showing the username and tag. When a card is clicked, the app subscribes to that user.
 
