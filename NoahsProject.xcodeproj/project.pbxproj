@@ -21,7 +21,6 @@
 		809BC0301FC33D7100ECD021 /* SedgwickAveDisplay-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 809BC02F1FC33D7000ECD021 /* SedgwickAveDisplay-Regular.ttf */; };
 		80C802DF1FACF6BC0031B883 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C802DE1FACF6BC0031B883 /* AppDelegate.swift */; };
 		80C802E11FACF6BC0031B883 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 80C802E01FACF6BC0031B883 /* art.scnassets */; };
-		80C802E31FACF6BC0031B883 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C802E21FACF6BC0031B883 /* ViewController.swift */; };
 		80C802E61FACF6BC0031B883 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80C802E41FACF6BC0031B883 /* Main.storyboard */; };
 		80C802E81FACF6BC0031B883 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80C802E71FACF6BC0031B883 /* Assets.xcassets */; };
 		80C802EB1FACF6BC0031B883 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80C802E91FACF6BC0031B883 /* LaunchScreen.storyboard */; };
@@ -44,7 +43,6 @@
 		80C802DB1FACF6BC0031B883 /* NoahsProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoahsProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80C802DE1FACF6BC0031B883 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		80C802E01FACF6BC0031B883 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
-		80C802E21FACF6BC0031B883 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		80C802E51FACF6BC0031B883 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		80C802E71FACF6BC0031B883 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		80C802EA1FACF6BC0031B883 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -86,7 +84,6 @@
 				809BC02D1FC33CE800ECD021 /* fonts */,
 				80C802DE1FACF6BC0031B883 /* AppDelegate.swift */,
 				80C802E01FACF6BC0031B883 /* art.scnassets */,
-				80C802E21FACF6BC0031B883 /* ViewController.swift */,
 				7F1106591FBE273100AFBF25 /* ARViewController.swift */,
 				7F53212F1FBF8C1C0033E74B /* Inceptionv3.mlmodel */,
 				80C802E41FACF6BC0031B883 /* Main.storyboard */,
@@ -183,7 +180,6 @@
 			files = (
 				7F522B041FB949CE0071EABE /* RoundButton.swift in Sources */,
 				54B56C491FB24C170053F655 /* AvailableViewController.swift in Sources */,
-				80C802E31FACF6BC0031B883 /* ViewController.swift in Sources */,
 				54B56C511FB364420053F655 /* SubViewController.swift in Sources */,
 				54B56C4F1FB35B440053F655 /* SubTableViewCell.swift in Sources */,
 				54B56C4B1FB24D890053F655 /* AvailableCollectionCell.swift in Sources */,
