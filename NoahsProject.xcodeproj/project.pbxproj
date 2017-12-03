@@ -26,7 +26,6 @@
 		80C802E81FACF6BC0031B883 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80C802E71FACF6BC0031B883 /* Assets.xcassets */; };
 		80C802EB1FACF6BC0031B883 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80C802E91FACF6BC0031B883 /* LaunchScreen.storyboard */; };
 		80C802F31FACF8870031B883 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C802F21FACF8870031B883 /* APIClient.swift */; };
-		80C802F71FACF9180031B883 /* APITestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C802F61FACF9180031B883 /* APITestViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,7 +50,6 @@
 		80C802EA1FACF6BC0031B883 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		80C802EC1FACF6BC0031B883 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		80C802F21FACF8870031B883 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
-		80C802F61FACF9180031B883 /* APITestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APITestViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,7 +85,6 @@
 			children = (
 				809BC02D1FC33CE800ECD021 /* fonts */,
 				80C802DE1FACF6BC0031B883 /* AppDelegate.swift */,
-				80C802F61FACF9180031B883 /* APITestViewController.swift */,
 				80C802E01FACF6BC0031B883 /* art.scnassets */,
 				80C802E21FACF6BC0031B883 /* ViewController.swift */,
 				7F1106591FBE273100AFBF25 /* ARViewController.swift */,
@@ -195,7 +192,6 @@
 				8080DE2E1FB0EC13008142E1 /* SubscriptionManager.swift in Sources */,
 				80C802F31FACF8870031B883 /* APIClient.swift in Sources */,
 				7F5321301FBF8C1C0033E74B /* Inceptionv3.mlmodel in Sources */,
-				80C802F71FACF9180031B883 /* APITestViewController.swift in Sources */,
 				8080DE2C1FB0BF89008142E1 /* ModelManager.swift in Sources */,
 				54B56C411FB0FAD20053F655 /* DataModel.swift in Sources */,
 			);
