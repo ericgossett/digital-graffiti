@@ -18,7 +18,7 @@ class ARViewController: UIViewController, ARSCNViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        /* Uncomment lines below to see debug tools (e.g. world origin and feature points) in the ARView */
+        /* Uncomment the two lines below to see debug tools (e.g. world origin and feature points) in the ARView */
         //self.sceneView.debugOptions = [ARSCNDebugOptions.showWorldOrigin, ARSCNDebugOptions.showFeaturePoints]
         //self.sceneView.showsStatistics = true
         self.sceneView.session.run(configuration)
@@ -36,7 +36,7 @@ class ARViewController: UIViewController, ARSCNViewDelegate {
                         // Jump onto the main thread
                         DispatchQueue.main.async {
                             // Access the first result in the array after casting the array as a VNClassificationObservation array
-                            guard let results = request.results as? [VNClassificationObservation], let result = results.first else {
+                            guard let results = request.results as? [VNClassificationObservation], let _ = results.first else {
                                 self.identifiedObject.text = "No results?"
                                 return
                             }
@@ -45,13 +45,13 @@ class ARViewController: UIViewController, ARSCNViewDelegate {
                                 for i in 0...subscribedArtists.count - 1{
                                     for j in 0..<10{ // top 10 classes
                                         if(subscribedArtists[i].artist.username == results[j].identifier){
+                                            self.identifiedObject.text = results[j].identifier // the label will only change when detected a subscribed artist
                                             self.loadCustomModel(username: subscribedArtists[i].artist.username)
                                             break
                                         }
                                     }
                                 }
                             }
-                            self.identifiedObject.text = result.identifier
                         }
                     })
                     let handler = VNImageRequestHandler(cvPixelBuffer: currentFrame.capturedImage, options: [:])
@@ -79,8 +79,6 @@ class ARViewController: UIViewController, ARSCNViewDelegate {
         } catch {
             // Unable to find model, do nothing
         }
-
-        
     }
     
     // the press button triggers the performImageRecognition func
