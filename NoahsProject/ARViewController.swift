@@ -79,12 +79,12 @@ class ARViewController: UIViewController, ARSCNViewDelegate {
         }
     }
     
-    // the press button trigger the performImageRecognition func
+    // the press button triggers the performImageRecognition func
     @IBAction func Button(_ sender: Any) {
         performImageRecognition()
     }
     
-    // the clear button trigger the restartSession func
+    // the clear button triggers the restartSession func
     @IBAction func clear(_ sender: Any) {
         restartSession()
     }

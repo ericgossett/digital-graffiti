@@ -40,8 +40,12 @@ The presentation layer consists of 3 views:
 - [Earth](https://poly.google.com/view/0nEWYSdUqRq)
 - [Android Robot](https://poly.google.com/view/9-bJ2cXrk8S)
 - [Winter Island](https://poly.google.com/view/1a1z56n7u67)
-- Pikachu - Ronen Horovitz
-- Chicken - Kenta Imai (henteko)
+- [Pikachu](https://poly.google.com/view/b8_ebRSSWFL)
+- [Poketnave](https://poly.google.com/view/aOjoTXh5_eV)
+- [Camera](https://poly.google.com/view/45rPLG4AL5W)
+- [Dining car](https://poly.google.com/view/5teci4b6krG)
+- [Attic fan](https://poly.google.com/view/3QSUtV4btiN)
+- [carrinha](https://poly.google.com/view/0dBpFDxQOmu)
 
 
 ### Other
@@ -55,3 +59,4 @@ The presentation layer consists of 3 views:
 ## Other
 
 - Special thanks to the iOS Developer Zone for their tutorial on how to use ModelIO. ([link](http://iosdeveloperzone.com/2016/05/10/getting-started-with-modelio/))
+- Special thanks to Jordan Osterberg for his tutorial on how to combine ARKit and Vision. ([link](https://dev.to/osterbergjordan/arkit--vision-an-intriguing-combination))
