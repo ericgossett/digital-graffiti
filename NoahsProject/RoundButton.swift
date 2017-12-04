@@ -5,7 +5,9 @@
 //  Created by YUNHAN WANG on 11/12/17.
 //  Copyright © 2017 Duke University. All rights reserved.
 //
-
+/* This class is used to create a round button easily in the storyboard
+   tutorial from https://www.youtube.com/watch?v=JQ5i2YKwvJ8 by Mark Moeykens
+*/
 import UIKit
 
 @IBDesignable
