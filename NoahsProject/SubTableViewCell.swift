@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class SubTableViewCell:UITableViewCell{
+class SubTableViewCell:UITableViewCell{ //cells contained in subTableView
     @IBOutlet weak var subCellIm: UIImageView!
     @IBOutlet weak var subCellLab: UILabel!
 }

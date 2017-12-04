@@ -1,13 +1,14 @@
 import Foundation
 import UIKit
-class loadedArtist: NSObject, NSCoding {
+class loadedArtist: NSObject, NSCoding { //loadedArtist consists of artist information and their corresponding tag which was loaded from the database. See availableArtists and subscribedArtist for example uses.
     var artist : Artist
     var artistImage=UIImage()
     init(_ inputArtist: Artist,_ inputImage: UIImage){
         self.artist=inputArtist
         self.artistImage=inputImage
     }
-    func encode(with aCoder: NSCoder) {
+    //These functions are for making the object compatible with NSCoding
+    func encode(with aCoder: NSCoder) { //decoder for loaded Artist. Need to encode each field that described an artist seperately as artist does not follow NSCoding protocol.
         aCoder.encode(self.artist.username, forKey: "artistUsername")
         aCoder.encode(self.artist.tag.name, forKey:"artistTagName")
         aCoder.encode(self.artist.tag.url, forKey:"artistTagURL")
@@ -21,8 +22,7 @@ class loadedArtist: NSObject, NSCoding {
         aCoder.encode(base64String, forKey:"artistImage")
     }
     
-    required convenience init?(coder aDecoder: NSCoder) {
-        //let curArtist = aDecoder.decodeObject(forKey: "artist") as! Artist
+    required convenience init?(coder aDecoder: NSCoder) { //decoder for loaded Artist. Need to decode each field that described an artist seperately as artist does not follow NSCoding protocol. Then create an artist based on these fields.
         let curArtistUserName = aDecoder.decodeObject(forKey: "artistUsername") as! String
         let curArtistTagName = aDecoder.decodeObject( forKey:"artistTagName") as! String
         let curArtistTagURL = aDecoder.decodeObject( forKey:"artistTagURL") as! URL
@@ -65,7 +65,7 @@ var myClient=APIClient()
 var subscriptions = SubscriptionManager()
 var availableArtists = [loadedArtist]()
 var subscribedArtists = [loadedArtist]()
-func artistInAvailable(checkArtist: Artist)->Bool{
+func artistInAvailable(checkArtist: Artist)->Bool{ //This function checks to see if an artist is in the available list
     for curArtist in availableArtists{
         if curArtist.artist.username==checkArtist.username{
             return true
@@ -73,24 +73,18 @@ func artistInAvailable(checkArtist: Artist)->Bool{
     }
     return false
 }
-func artistInSubscribed(checkArtist: Artist)->Bool{
+func artistInSubscribed(checkArtist: Artist)->Bool{ //This function checks to see if an artist is in the subscribed list
     for curArtist in subscribedArtists{
         if curArtist.artist.username==checkArtist.username{
             return true
         }
     }
-//    for piece in subscriptions.subscriptions() {
-//        if piece.username == checkArtist.username {
-//            return true
-//        }
-//    }
     return false
 }
 let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
-let ArchiveURLAvaiable = DocumentsDirectory.appendingPathComponent("availableDatabase")
-let ArchiveURLSubbed = DocumentsDirectory.appendingPathComponent("subbedDatabase")
+let ArchiveURLSubbed = DocumentsDirectory.appendingPathComponent("subbedDatabase") //Archive used for saving subscription list
 
-func saveSubscribed() {
+func saveSubscribed() { //function for saving subscribedArtists list
     let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(subscribedArtists, toFile: ArchiveURLSubbed.path)
     
     if isSuccessfulSave{
@@ -101,7 +95,7 @@ func saveSubscribed() {
 
 }
 
-func loadSubscribed(){
+func loadSubscribed(){ //function for loading subscribedArtists list
     subscribedArtists=(NSKeyedUnarchiver.unarchiveObject(withFile: ArchiveURLSubbed.path) as? [loadedArtist])!
 }
 

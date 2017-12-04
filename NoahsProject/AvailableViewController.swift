@@ -13,12 +13,14 @@ class AvailableViewController:UIViewController, UICollectionViewDataSource, UICo
     @IBOutlet weak var availableCollectionView: UICollectionView!
     var firstLoad=true
     var loadMe=true
+    //This view controller controls the avaiable artists that will be displayed to the user in a collection view. This is populated based on data from our server. Users can subscribe to artist from the view (availableCollectionView) that this controls.
     override func viewDidLoad() {
         super.viewDidLoad()
         let fileManager = FileManager.default
+        //This will load a subscription list if one exists
         if self.loadMe{if fileManager.fileExists(atPath: ArchiveURLSubbed.path) {
                 loadSubscribed()
-                self.loadMe=false
+                self.loadMe=false //Will not load subscription list again
         } else {
             // print("FILE NOT AVAILABLE")
             }
@@ -26,7 +28,6 @@ class AvailableViewController:UIViewController, UICollectionViewDataSource, UICo
         availableCollectionView.delegate = self
         availableCollectionView.dataSource = self
         availableCollectionView.frame=self.view!.frame
-        // availableCollectionView.bounds = availableCollectionView.frame.insetBy(dx: 10.0, dy: 10.0)
         
         
         // This will define a responsive layout (or at least attempt to)
@@ -39,23 +40,6 @@ class AvailableViewController:UIViewController, UICollectionViewDataSource, UICo
         layout.minimumLineSpacing = 20
         availableCollectionView!.collectionViewLayout = layout
         
-        
-        // availableCollectionView!.backgroundColor = UIColor.green
-        
-        //        if firstLoad{
-        //            myClient.fetchUserList { (returnedArtists) in
-        //                for curArtist in returnedArtists{
-        //                    if !artistInAvailable(checkArtist: curArtist){
-        //                        myClient.fetchTag(username: curArtist.username, completion: {(imgData) in
-        //                            var curLoadArtist=loadedArtist(artist: curArtist, artistImage:UIImage(data: imgData)!)
-        //                            availableArtists.append(curLoadArtist)
-        //                        })
-        //                    }
-        //                }
-        //                self.availableCollectionView.reloadData()
-        //            }
-        //        }
-        //        self.firstLoad=false
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -83,10 +67,9 @@ class AvailableViewController:UIViewController, UICollectionViewDataSource, UICo
         cell.cellLab.text=curArtist.artist.username
         cell.cellIm.image=curArtist.artistImage
         cell.cellIm.contentMode = .scaleAspectFit
-        let isSubbed = artistInSubscribed(checkArtist: curArtist.artist)
+        let isSubbed = artistInSubscribed(checkArtist: curArtist.artist) //If the artist is subscribed add a check
         cell.cellCheck.isHidden = !isSubbed
         
-        // cell.bounds = cell.frame.insetBy(dx: 10.0, dy: 10.0) // Some hack way to get a constant padding because collection view changes the padding size.
         cell.backgroundColor = UIColor.white
         cell.contentView.layer.cornerRadius = 2.0
         cell.contentView.layer.borderWidth = 1.0
@@ -106,38 +89,18 @@ class AvailableViewController:UIViewController, UICollectionViewDataSource, UICo
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as! AvailableCollectionCell
-        //if cell.cellCheck.isHidden{//Just in case other ops are too slow
         cell.cellCheck.isHidden = false
         
         let curLoadArtist = availableArtists[indexPath.item]
         let curArtist = curLoadArtist.artist
         if !artistInSubscribed(checkArtist: curArtist){
             subscribedArtists.append(curLoadArtist)
-            saveSubscribed()
+            saveSubscribed() //Add to subscribed artists and save
             do{try subscriptions.subscribeToArtist(username: curArtist.username) }
-            catch{ } // TODO handle catchs
+            catch{ } //Update subscription manager as well with new subscription. This will trigger downloading of model assets so they can be viewed in ARView.
         }
     }
 
-    /*
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = collectionView.bounds.width/3.0 - 20
-        
-        return CGSize(width: width, height: 100)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsetsMake(0,10,20,10)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 20
-    }
-    */
     
     private func collectionView(collectionView: UICollectionView, didEndDisplayingSupplementaryView view: UICollectionReusableView, forElementOfKind elementKind: String, atIndexPath indexPath: IndexPath) {
         
@@ -147,7 +110,7 @@ class AvailableViewController:UIViewController, UICollectionViewDataSource, UICo
 
 extension AvailableViewController {
     
-    func fetchFromServer() {
+    func fetchFromServer() { //This function populates availableArtists from data present on the server. This availableArtist list was added as we only wanted to add to the collection once the artist and their corresponding tag was loaded. The collection view is populated based on the availableArtists list.
         myClient.testConnection { connected in
             if connected {
                 myClient.fetchUserList { (returnedArtists) in
@@ -156,12 +119,13 @@ extension AvailableViewController {
                             myClient.fetchTag(username: curArtist.username, completion: {(imgData) in
                                 let curLoadArtist=loadedArtist(curArtist, UIImage(data: imgData)!)
                                 if !artistInAvailable(checkArtist: curArtist){ availableArtists.append(curLoadArtist)}
+                                //Above added becuase of async nature of the fetch. Makes sure artist hasn't been added since fetching started to prevent duplicate artists in list.
                                 self.availableCollectionView.reloadData()
                             })
                         }
                     }
                 }
-            } else {
+            } else { //This was added to prevent crashes in case of no server connect. Our application requires connection to our server to work properly.
                 let alertController = UIAlertController(title: "Connection Error", message: "Unable to reach server, please check your wifi. If your wifi is working email Eric at ericmgossett@gmail.com and tell him to get his server in check!", preferredStyle: .alert)
                 let OKAction = UIAlertAction(title: "OK", style: .default, handler: nil)
                 alertController.addAction(OKAction)
