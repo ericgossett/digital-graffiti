@@ -49,7 +49,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ZcG-7o-P8b">
-                                <rect key="frame" x="0.0" y="10" width="768" height="901"/>
+                                <rect key="frame" x="0.0" y="10" width="768" height="897"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="25" minimumInteritemSpacing="25" id="uNn-7x-9V0">
                                     <size key="itemSize" width="401" height="178"/>
@@ -155,7 +155,7 @@
                                     <action selector="Button:" destination="IlZ-3U-Kh7" eventType="touchUpInside" id="LRL-fg-WVO"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f00-Jh-Pki">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f00-Jh-Pki">
                                 <rect key="frame" x="184" y="935" width="400" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="f00-Jh-Pki" secondAttribute="height" multiplier="20:1" id="b4X-Eu-hY7"/>
