@@ -72,11 +72,15 @@ class ARViewController: UIViewController, ARSCNViewDelegate {
         let targetPosition = SCNVector3(currentPositionOfCamera.x,currentPositionOfCamera.y,currentPositionOfCamera.z - 0.1)
 
         let modelManager = ModelManager()
-        modelManager.saveAssets(username: username) {(modelFile, TextureFile) in
-            let node = try! modelManager.getSCNNode(username: username)
+        do {
+            let node = try modelManager.getSCNNode(username: username)
             node.position = targetPosition
             self.sceneView.scene.rootNode.addChildNode(node)
+        } catch {
+            // Unable to find model, do nothing
         }
+
+        
     }
     
     // the press button triggers the performImageRecognition func
