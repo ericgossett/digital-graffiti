@@ -106,7 +106,7 @@ class APIClient {
         let task = session.dataTask(with: req) {(data, res, error) in
             DispatchQueue.main.async {
                 guard error == nil, let fileData = data else {
-                    fatalError("throw, error of no response")
+                    return
                 }
                 completion?(fileData)
             }
