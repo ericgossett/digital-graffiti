@@ -38,8 +38,8 @@
 		8080DE2B1FB0BF89008142E1 /* ModelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelManager.swift; sourceTree = "<group>"; };
 		8080DE2D1FB0EC13008142E1 /* SubscriptionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionManager.swift; sourceTree = "<group>"; };
 		809BC02D1FC33CE800ECD021 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fonts; sourceTree = "<group>"; };
-		809BC02F1FC33D7000ECD021 /* SedgwickAveDisplay-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SedgwickAveDisplay-Regular.ttf"; path = "NoahsProject/fonts/SedgwickAveDisplay-Regular.ttf"; sourceTree = "<group>"; };
-		80C802DB1FACF6BC0031B883 /* NoahsProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoahsProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		809BC02F1FC33D7000ECD021 /* SedgwickAveDisplay-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SedgwickAveDisplay-Regular.ttf"; path = "DigitalGraffiti/fonts/SedgwickAveDisplay-Regular.ttf"; sourceTree = "<group>"; };
+		80C802DB1FACF6BC0031B883 /* DigitalGraffiti.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DigitalGraffiti.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80C802DE1FACF6BC0031B883 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		80C802E51FACF6BC0031B883 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		80C802E71FACF6BC0031B883 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -63,7 +63,7 @@
 			isa = PBXGroup;
 			children = (
 				809BC02F1FC33D7000ECD021 /* SedgwickAveDisplay-Regular.ttf */,
-				80C802DD1FACF6BC0031B883 /* NoahsProject */,
+				80C802DD1FACF6BC0031B883 /* DigitalGraffiti */,
 				80C802DC1FACF6BC0031B883 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -71,12 +71,12 @@
 		80C802DC1FACF6BC0031B883 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				80C802DB1FACF6BC0031B883 /* NoahsProject.app */,
+				80C802DB1FACF6BC0031B883 /* DigitalGraffiti.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		80C802DD1FACF6BC0031B883 /* NoahsProject */ = {
+		80C802DD1FACF6BC0031B883 /* DigitalGraffiti */ = {
 			isa = PBXGroup;
 			children = (
 				809BC02D1FC33CE800ECD021 /* fonts */,
@@ -97,15 +97,15 @@
 				54B56C4E1FB35B440053F655 /* SubTableViewCell.swift */,
 				7F522B031FB949CE0071EABE /* RoundButton.swift */,
 			);
-			path = NoahsProject;
+			path = DigitalGraffiti;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		80C802DA1FACF6BC0031B883 /* NoahsProject */ = {
+		80C802DA1FACF6BC0031B883 /* DigitalGraffiti */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 80C802EF1FACF6BC0031B883 /* Build configuration list for PBXNativeTarget "NoahsProject" */;
+			buildConfigurationList = 80C802EF1FACF6BC0031B883 /* Build configuration list for PBXNativeTarget "DigitalGraffiti" */;
 			buildPhases = (
 				80C802D71FACF6BC0031B883 /* Sources */,
 				80C802D81FACF6BC0031B883 /* Frameworks */,
@@ -115,9 +115,9 @@
 			);
 			dependencies = (
 			);
-			name = NoahsProject;
+			name = DigitalGraffiti;
 			productName = NoahsProject;
-			productReference = 80C802DB1FACF6BC0031B883 /* NoahsProject.app */;
+			productReference = 80C802DB1FACF6BC0031B883 /* DigitalGraffiti.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -136,7 +136,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 80C802D61FACF6BC0031B883 /* Build configuration list for PBXProject "NoahsProject" */;
+			buildConfigurationList = 80C802D61FACF6BC0031B883 /* Build configuration list for PBXProject "DigitalGraffiti" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -149,7 +149,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				80C802DA1FACF6BC0031B883 /* NoahsProject */,
+				80C802DA1FACF6BC0031B883 /* DigitalGraffiti */,
 			);
 		};
 /* End PBXProject section */
@@ -324,9 +324,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VF9HCW6WNY;
-				INFOPLIST_FILE = NoahsProject/Info.plist;
+				INFOPLIST_FILE = DigitalGraffiti/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Noahs.NoahsProjects70;
+				PRODUCT_BUNDLE_IDENTIFIER = DigitalGraffiti;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -339,9 +339,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VF9HCW6WNY;
-				INFOPLIST_FILE = NoahsProject/Info.plist;
+				INFOPLIST_FILE = DigitalGraffiti/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Noahs.NoahsProjects70;
+				PRODUCT_BUNDLE_IDENTIFIER = DigitalGraffiti;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -351,7 +351,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		80C802D61FACF6BC0031B883 /* Build configuration list for PBXProject "NoahsProject" */ = {
+		80C802D61FACF6BC0031B883 /* Build configuration list for PBXProject "DigitalGraffiti" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				80C802ED1FACF6BC0031B883 /* Debug */,
@@ -360,7 +360,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		80C802EF1FACF6BC0031B883 /* Build configuration list for PBXNativeTarget "NoahsProject" */ = {
+		80C802EF1FACF6BC0031B883 /* Build configuration list for PBXNativeTarget "DigitalGraffiti" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				80C802F01FACF6BC0031B883 /* Debug */,
