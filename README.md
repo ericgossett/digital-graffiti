@@ -2,6 +2,12 @@
 
 Digital Graffiti is an AR experience that lets users place tags in their environment to display 3D models. When a user encounters a tag in the wild, this application allows one to view the 3D model associated with that tag in augmented reality.
 
+![](readme_images/app.png)
+
+## Authors
+ - Eric Gossett
+ - Yunhan Wang
+ - John Bralich
 
 # Architecture
 

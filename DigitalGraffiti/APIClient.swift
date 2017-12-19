@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-let DEV_MODE = false
+let DEV_MODE = true
 
 /*** Structure used to decode JSON response in fetchUserList.
 */
